@@ -476,4 +476,65 @@ document.addEventListener('DOMContentLoaded', () => {
     if (yearEl) {
         yearEl.textContent = new Date().getFullYear();
     }
+
+    // ==========================================
+    // 14. PROJECT M: SECRET TRIGGER
+    // ==========================================
+    let secretBuffer = "";
+    const secretCode = "bmw";
+
+    window.addEventListener("keydown", (e) => {
+        // Method 1: Typing "bmw"
+        if (e.key.length === 1 && e.key.match(/[a-zA-Z]/)) {
+            secretBuffer += e.key.toLowerCase();
+            if (secretBuffer.length > secretCode.length) {
+                secretBuffer = secretBuffer.substring(1);
+            }
+            if (secretBuffer === secretCode) {
+                triggerProjectMBoot();
+                secretBuffer = "";
+            }
+        }
+        
+        // Method 2: CTRL + SHIFT + M
+        if (e.ctrlKey && e.shiftKey && (e.key === "M" || e.key === "m")) {
+            e.preventDefault();
+            triggerProjectMBoot();
+        }
+    });
+
+    function triggerProjectMBoot() {
+        const bootScreen = document.getElementById("project-m-boot");
+        if (!bootScreen) return;
+        
+        bootScreen.classList.add("active");
+        
+        const lines = [
+            { el: document.getElementById("boot-text-1"), text: "ACCESS GRANTED", delay: 500 },
+            { el: document.getElementById("boot-text-2"), text: "Authenticating...", delay: 1500 },
+            { el: document.getElementById("boot-text-3"), text: "BMW PROTOCOL", delay: 2500 },
+            { el: document.getElementById("boot-text-4"), text: "Garage Unlocking...", delay: 3500 }
+        ];
+
+        lines.forEach(line => {
+            setTimeout(() => {
+                line.el.textContent = line.text;
+            }, line.delay);
+        });
+
+        // Progress bar animation
+        setTimeout(() => {
+            const bar = document.querySelector(".boot-progress-bar");
+            const fill = document.querySelector(".boot-progress-fill");
+            if(bar && fill) {
+                bar.style.display = "block";
+                setTimeout(() => fill.style.width = "100%", 100);
+            }
+        }, 1500);
+
+        // Redirect to garage.html
+        setTimeout(() => {
+            window.location.href = "garage.html";
+        }, 4500);
+    }
 });

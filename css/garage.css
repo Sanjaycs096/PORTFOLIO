@@ -1,0 +1,201 @@
+/* ==========================================
+   CSS/GARAGE.CSS
+   Layout, Machine Cards, Blueprints, Showroom
+   ========================================== */
+
+/* ECU Boot Screen (Blocks scrolling during initialization) */
+.ecu-boot {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: var(--carbon-black);
+    z-index: 100000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--bmw-cyan);
+    font-family: 'Courier New', Courier, monospace;
+    transition: opacity 1s ease;
+}
+.ecu-container {
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sub-boot-title {
+    font-family: var(--font-heading);
+    color: #fff;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+.engine-diagnostics p {
+    text-align: center;
+    margin: 8px 0;
+    font-size: 1.1rem;
+    opacity: 0;
+}
+.boot-gauge-container {
+    width: 100%; height: 4px; background: rgba(255,255,255,0.1);
+    margin: 30px 0 20px; position: relative; overflow: hidden;
+}
+.boot-gauge-fill {
+    position: absolute; top: 0; left: 0; height: 100%; width: 0%;
+    background: var(--bmw-cyan); box-shadow: 0 0 15px var(--bmw-cyan);
+    transition: width 1s linear;
+}
+.engine-ready {
+    color: var(--bmw-cyan);
+    opacity: 0;
+    font-family: var(--font-heading);
+    letter-spacing: 3px;
+}
+
+/* Prevent scrolling while boot screen is active */
+body.booting { overflow: hidden; }
+
+/* Layout & Sections */
+.section { padding: 100px 5%; position: relative; z-index: 10; }
+.dark-panel { background: rgba(0,0,0,0.4); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    color: var(--bmw-white);
+    letter-spacing: 2px;
+}
+.m-logo { font-style: italic; color: var(--bmw-cyan); font-weight: 900; margin-right: 10px; }
+
+/* Navbar */
+.glass-nav {
+    position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center;
+    padding: 1.5rem 5%; background: rgba(16, 18, 22, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border); z-index: 999;
+}
+.nav-brand { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: #fff; }
+.m-text { color: #fff; font-style: normal; }
+.nav-links { list-style: none; display: flex; gap: 2rem; }
+.nav-link { color: #aaa; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; transition: color 0.3s; position: relative; }
+.nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0%; height: 2px; background: var(--bmw-cyan); transition: width 0.3s; }
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.nav-link:hover, .nav-link.active { color: var(--bmw-cyan); }
+.exit-btn { color: var(--bmw-m-red); }
+.exit-btn:hover { color: #fff; }
+.exit-btn::after { background: var(--bmw-m-red); }
+
+/* Hero Section */
+.hero-section { min-height: 100vh; padding: 120px 5% 50px; display: flex; align-items: center; position: relative; z-index: 10; }
+.hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; width: 100%; align-items: center; }
+.subtitle { font-family: var(--font-accent); font-size: 1.5rem; letter-spacing: 4px; margin-bottom: 10px; }
+.title { font-family: var(--font-heading); font-size: 4rem; line-height: 1.1; margin-bottom: 20px; }
+.desc { font-size: 1.5rem; color: #ccc; margin-bottom: 30px; }
+.bio-text { font-size: 1.1rem; color: #aaa; border-left: 3px solid var(--bmw-m-light-blue); padding-left: 15px; min-height: 80px; }
+
+/* Machines (Projects) */
+.machine-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.machine-card {
+    background: var(--gun-metal); border: 1px solid var(--glass-border); border-radius: 4px; overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+    position: relative;
+}
+.machine-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 20px rgba(0,243,255,0.2); border-color: var(--bmw-cyan); }
+
+.machine-image { height: 200px; position: relative; overflow: hidden; }
+.machine-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(80%) sepia(20%) hue-rotate(180deg); transition: filter 0.5s; }
+.machine-card:hover .machine-image img { filter: grayscale(0%); }
+
+.garage-door {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: repeating-linear-gradient(0deg, #111, #111 10px, #000 10px, #000 12px);
+    z-index: 2; transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.machine-card:hover .garage-door { transform: translateY(-100%); }
+.blueprint-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M0,0 L20,0 L20,20 L0,20 Z" fill="none" stroke="rgba(0,243,255,0.1)" stroke-width="1"/></svg>');
+    z-index: 3; opacity: 0; transition: opacity 0.5s; pointer-events: none;
+}
+.machine-card:hover .blueprint-overlay { opacity: 1; }
+
+.machine-specs { padding: 25px; }
+.machine-specs h3 { font-family: var(--font-heading); color: #fff; margin-bottom: 15px; font-size: 1.4rem; }
+.spec-row { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 8px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px; color: #aaa; }
+.spec-val { color: #fff; font-weight: 600; }
+.machine-actions { display: flex; gap: 10px; margin-top: 20px; }
+.machine-actions .hud-btn { flex: 1; text-align: center; font-size: 0.8rem; padding: 8px; }
+
+/* Engineering Blueprints */
+.blueprint-bg { background-image: radial-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px); background-size: 30px 30px; }
+.blueprint-timeline { position: relative; max-width: 800px; margin: 0 auto; padding-left: 40px; border-left: 2px solid var(--bmw-m-light-blue); }
+.blueprint-node { position: relative; margin-bottom: 50px; padding: 20px; background: rgba(0,0,0,0.6); border: 1px solid var(--glass-border); transition: all 0.3s; }
+.blueprint-node:hover { border-color: var(--bmw-cyan); box-shadow: inset 0 0 20px rgba(0,243,255,0.1); }
+.cad-dot { position: absolute; left: -47px; top: 20px; width: 12px; height: 12px; border-radius: 50%; background: var(--bmw-cyan); box-shadow: 0 0 10px var(--bmw-cyan); }
+.cad-content h4 { font-family: var(--font-heading); color: var(--bmw-white); font-size: 1.3rem; }
+.cad-content h5 { color: var(--bmw-m-light-blue); margin-bottom: 10px; font-family: var(--font-accent); letter-spacing: 1px; }
+.cad-details { color: #aaa; font-size: 0.95rem; }
+
+/* Security Lab (SOC) */
+.soc-dashboard { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+.soc-terminal { background: #050505; border: 1px solid #333; border-radius: 4px; font-family: 'Courier New', monospace; box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
+.term-header { background: #111; padding: 10px; display: flex; align-items: center; border-bottom: 1px solid #333; }
+.red-dot, .yellow-dot, .green-dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+.red-dot { background: #ff5f56; } .yellow-dot { background: #ffbd2e; } .green-dot { background: #27c93f; }
+.term-title { color: #888; font-size: 0.8rem; margin-left: 10px; }
+.term-body { padding: 20px; color: #0f0; font-size: 0.9rem; min-height: 250px; overflow-y: hidden; }
+
+.soc-radar { background: rgba(0,0,0,0.6); border: 1px solid var(--glass-border); padding: 30px; display: flex; flex-direction: column; align-items: center; border-radius: 4px; }
+.radar-scanner { width: 150px; height: 150px; border-radius: 50%; border: 2px solid rgba(0,243,255,0.2); position: relative; overflow: hidden; margin-bottom: 30px; background: radial-gradient(circle, rgba(0,243,255,0.1) 0%, transparent 70%); }
+.radar-beam { position: absolute; top: 0; left: 50%; width: 50%; height: 50%; transform-origin: bottom left; background: linear-gradient(90deg, rgba(0,243,255,0.8) 0%, transparent 100%); animation: scan-radar 2s linear infinite; }
+.radar-stats p { font-family: var(--font-heading); font-size: 0.85rem; margin-bottom: 10px; color: #888; }
+
+/* 3D Showroom */
+.showroom-bg { background: linear-gradient(to bottom, transparent, rgba(0,102,178,0.05), transparent); }
+.showroom-3d-container { perspective: 1200px; padding: 40px 0; }
+.rotating-platform { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; transform-style: preserve-3d; }
+.showroom-car-card { background: #000; border: 1px solid #222; position: relative; height: 250px; border-radius: 8px; overflow: hidden; transform: rotateX(10deg); transition: all 0.5s; box-shadow: 0 30px 40px rgba(0,0,0,0.8); }
+.showroom-car-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5); transition: all 0.5s; }
+.showroom-car-card:hover { transform: rotateX(0deg) scale(1.05) translateY(-20px); z-index: 10; box-shadow: 0 40px 60px rgba(0,0,0,1), 0 0 30px rgba(255,255,255,0.1); border-color: #555; }
+.showroom-car-card:hover img { filter: brightness(1); }
+.car-spec-sheet { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.95)); padding: 20px; transform: translateY(40px); opacity: 0; transition: all 0.4s; }
+.showroom-car-card:hover .car-spec-sheet { transform: translateY(0); opacity: 1; }
+.car-spec-sheet h3 { font-family: var(--font-heading); color: #fff; margin-bottom: 5px; }
+.car-spec-sheet p { color: #aaa; font-size: 0.85rem; margin-bottom: 10px; }
+.spec-bar { height: 4px; background: rgba(255,255,255,0.2); }
+.spec-bar .fill { height: 100%; background: var(--bmw-white); }
+
+/* Mission Control / Contact */
+.mission-grid { max-width: 600px; margin: 0 auto; }
+.mission-terminal-form { background: rgba(10,12,15,0.9); border: 1px solid var(--glass-border); padding: 40px; border-radius: 8px; border-top: 3px solid var(--bmw-m-red); }
+.mission-terminal-form h3 { font-family: var(--font-heading); color: var(--bmw-white); margin-bottom: 30px; text-align: center; }
+
+/* Shortcuts Modal */
+.shortcuts-modal {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 10000; opacity: 1; transition: opacity 0.3s;
+}
+.shortcuts-modal.hidden { opacity: 0; pointer-events: none; }
+.shortcuts-modal .modal-content {
+    background: var(--gun-metal); border: 1px solid var(--bmw-m-red);
+    padding: 30px; border-radius: 8px; width: 90%; max-width: 500px;
+    box-shadow: 0 0 30px rgba(231,34,46,0.3);
+}
+.shortcuts-modal .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+.shortcuts-modal .modal-header h3 { font-family: var(--font-heading); font-size: 1.2rem; }
+.shortcuts-modal ul { list-style: none; padding-left: 0; margin-top: 20px; }
+.shortcuts-modal li { margin-bottom: 15px; display: flex; align-items: center; color: #ccc; font-size: 0.95rem; }
+.key-badge {
+    background: #000; border: 1px solid var(--bmw-cyan); color: var(--bmw-cyan);
+    padding: 4px 10px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.85rem;
+    margin-right: 15px; min-width: 80px; text-align: center; font-weight: bold;
+}
+.warning-btn { border-color: var(--bmw-m-red); color: var(--bmw-m-red); }
+.warning-btn:hover { background: var(--bmw-m-red); color: #fff; box-shadow: 0 0 15px var(--bmw-m-red); }
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; font-family: var(--font-heading); font-size: 0.8rem; color: #888; margin-bottom: 8px; letter-spacing: 1px; }
+.input-group input, .input-group textarea { width: 100%; background: #000; border: 1px solid #333; padding: 12px; color: var(--bmw-cyan); font-family: 'Courier New', monospace; outline: none; transition: border-color 0.3s; }
+.input-group input:focus, .input-group textarea:focus { border-color: var(--bmw-cyan); box-shadow: inset 0 0 10px rgba(0,243,255,0.1); }
+.input-group textarea { height: 100px; resize: none; }
+#transmission-status { text-align: center; margin-top: 20px; font-family: 'Courier New', monospace; color: var(--bmw-cyan); }

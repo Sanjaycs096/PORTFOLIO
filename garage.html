@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW PROTOCOL - Hidden Engineering Division</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Audiowide&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/garage.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="garage-theme comfort-mode">
+
+    <!-- HUD Cursor -->
+    <div id="hud-cursor-dot"></div>
+    <div id="hud-cursor-trail"></div>
+    <div id="hud-radar-pulse"></div>
+
+    <!-- M Mode Indicator (Popup) -->
+    <div id="m-mode-indicator">SPORT MODE ENGAGED</div>
+
+    <!-- ECU Boot Sequence -->
+    <div id="ecu-boot" class="ecu-boot">
+        <div class="ecu-container">
+            <h1 class="bmw-title glitch" data-text="BMW PROTOCOL">BMW PROTOCOL</h1>
+            <h2 class="sub-boot-title">Hidden Engineering Division</h2>
+            
+            <div class="engine-diagnostics">
+                <p id="boot-1">> Initializing ECU...</p>
+                <p id="boot-2">> Checking Sensors...</p>
+                <p id="boot-3">> Authenticating Driver...</p>
+                <p id="boot-4">> Scanning CAN Bus...</p>
+                <p id="boot-5">> Activating BMW Protocol...</p>
+            </div>
+
+            <div class="boot-gauge-container">
+                <div class="boot-gauge-bg"></div>
+                <div class="boot-gauge-fill" id="boot-progress"></div>
+                <div class="rpm-marks"></div>
+            </div>
+            
+            <h2 class="engine-ready pulse" id="boot-ready-text">PERFORMANCE MODE ENABLED</h2>
+        </div>
+    </div>
+
+    <!-- Background Effects -->
+    <canvas id="particles-bg"></canvas>
+    <div class="carbon-fiber-overlay"></div>
+    <div class="digital-rain-overlay"></div>
+    <div class="laser-scan-line"></div>
+
+    <!-- Global Controls -->
+    <div class="global-controls">
+        <button id="mute-btn" class="hud-btn" aria-label="Toggle Audio"><i class="fas fa-volume-up"></i></button>
+    </div>
+
+    <!-- Shortcuts Modal -->
+    <div id="shortcuts-modal" class="shortcuts-modal hidden">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h3><i class="fas fa-exclamation-triangle bmw-red-text"></i> SYSTEM SHORTCUTS</h3>
+                <button id="close-shortcuts" class="hud-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Type the following commands directly on your keyboard to activate hidden engineering modes:</p>
+                <ul>
+                    <li><span class="key-badge">Double Press 'M'</span> Cycle Themes (Comfort/Sport/Track)</li>
+                    <li><span class="key-badge">T-U-R-B-O</span> Neon Pink Overdrive</li>
+                    <li><span class="key-badge">M-5</span> Sepia Night Drive</li>
+                    <li><span class="key-badge">N-I-T-R-O</span> Torque Skew Effect</li>
+                    <li><span class="key-badge">G-H-O-S-T</span> Stealth Mode (Transparent Cards)</li>
+                    <li><span class="key-badge">H-A-C-K</span> Quick jump to Security Lab</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="m-nav glass-nav">
+        <div class="nav-brand">
+            <span class="m-logo">///<span class="m-text">M</span></span> PROTOCOL <span id="nav-mode-text" style="font-size: 0.6rem; margin-left: 10px; color: var(--bmw-cyan); font-family: var(--font-heading); vertical-align: middle; border: 1px solid var(--bmw-cyan); padding: 2px 6px; border-radius: 10px;">COMFORT MODE</span>
+        </div>
+        <ul class="nav-links">
+            <li><button id="shortcuts-btn" class="hud-btn warning-btn" aria-label="View Shortcuts" style="padding: 5px 15px; margin-right: 15px;"><i class="fas fa-exclamation-triangle"></i></button></li>
+            <li><a href="#cockpit" class="nav-link active">Cockpit</a></li>
+            <li><a href="#machines" class="nav-link">Machines</a></li>
+            <li><a href="#engineering" class="nav-link">Blueprints</a></li>
+            <li><a href="#security-lab" class="nav-link">Sec-Lab</a></li>
+            <li><a href="#showroom" class="nav-link">Museum</a></li>
+            <li><a href="#mission-control" class="nav-link">Mission Control</a></li>
+            <li><a href="index.html" class="nav-link exit-btn"><i class="fas fa-power-off"></i> Exit System</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero / Live Cockpit Section -->
+        <section id="cockpit" class="hero-section">
+            <div class="hero-content">
+                <!-- Left: Intro -->
+                <div class="hero-text">
+                    <h2 class="subtitle bmw-red-text">INITIALIZATION COMPLETE</h2>
+                    <h1 class="title">BMW <span class="bmw-cyan-text">Digital</span> Performance Lab</h1>
+                    <p class="desc">Engineering without limits.</p>
+                    <div class="bio-text typing-effect">
+                        <span id="typewriter-bio"></span>
+                    </div>
+                </div>
+                
+                <!-- Right: Live Cockpit HUD -->
+                <div class="hero-dashboard right">
+                    <div class="live-cockpit">
+                        
+                        <!-- Primary Dials -->
+                        <div class="primary-dials">
+                            <div class="dial rpm-dial">
+                                <svg viewBox="0 0 100 50"><path d="M 10,50 A 40,40 0 0,1 90,50" class="dial-bg"/><path d="M 10,50 A 40,40 0 0,1 90,50" class="dial-fill" id="rpm-fill"/></svg>
+                                <div class="dial-val"><span id="rpm-val">1.2</span><span class="unit">x1000 RPM</span></div>
+                            </div>
+                            <div class="dial speed-dial">
+                                <svg viewBox="0 0 100 50"><path d="M 10,50 A 40,40 0 0,1 90,50" class="dial-bg"/><path d="M 10,50 A 40,40 0 0,1 90,50" class="dial-fill" id="speed-fill"/></svg>
+                                <div class="dial-val"><span id="speed-val">124</span><span class="unit">KM/H</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Telemetry -->
+                        <div class="telemetry-grid">
+                            <div class="tel-card">
+                                <span>TURBO BOOST</span>
+                                <div class="mini-bar"><div class="fill bmw-red-bg" id="turbo-bar" style="width: 10%;"></div></div>
+                                <span class="val-right" id="turbo-val">1.1 bar</span>
+                            </div>
+                            <div class="tel-card">
+                                <span>CPU LOAD</span>
+                                <div class="mini-bar"><div class="fill bmw-blue-bg" id="cpu-bar" style="width: 45%;"></div></div>
+                                <span class="val-right" id="cpu-val">45%</span>
+                            </div>
+                            <div class="tel-card">
+                                <span>NETWORK I/O</span>
+                                <div class="mini-bar"><div class="fill bmw-cyan-bg" id="net-bar" style="width: 80%;"></div></div>
+                                <span class="val-right" id="net-val">Stable</span>
+                            </div>
+                        </div>
+
+                        <!-- Stats Readout -->
+                        <div class="stats-readout">
+                            <div class="stat"><span class="label">COMMITS</span><span class="value counter" data-target="1452">0</span></div>
+                            <div class="stat"><span class="label">PROJECTS</span><span class="value counter" data-target="9">0</span></div>
+                            <div class="stat"><span class="label">HOURS CODED</span><span class="value counter" data-target="15000">0</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Machines (Projects) Section -->
+        <section id="machines" class="section">
+            <h2 class="section-title reveal"><span class="m-logo">///</span> VEHICLE SPECIFICATIONS</h2>
+            <div class="machine-grid">
+                
+                <!-- Vehicle 1: Inventory -->
+                <div class="machine-card reveal delay-1">
+                    <div class="machine-image">
+                        <div class="garage-door"></div>
+                        <img src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&w=800&q=80" alt="Inventory M System">
+                        <div class="blueprint-overlay"></div>
+                    </div>
+                    <div class="machine-specs">
+                        <h3>Inventory Management System</h3>
+                        <div class="spec-row"><span>Architecture:</span> <span class="spec-val">Track Chassis</span></div>
+                        <div class="spec-row"><span>Powertrain:</span> <span class="spec-val">Spring Boot / Supabase</span></div>
+                        <div class="spec-row"><span>Horsepower:</span> <span class="spec-val bmw-red-text">980 HP</span></div>
+                        <div class="spec-row"><span>Deployment:</span> <span class="spec-val">Vercel Edge</span></div>
+                        <div class="machine-actions">
+                            <a href="https://inventrack-eta.vercel.app" target="_blank" class="hud-btn glow">Live</a>
+                            <a href="https://github.com/Sanjaycs096/INVENTORY-MANAGEMENT-SYSTEM.git" target="_blank" class="hud-btn outline">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle 2: Chatbot -->
+                <div class="machine-card reveal delay-2">
+                    <div class="machine-image">
+                        <div class="garage-door"></div>
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt="Chatbot">
+                        <div class="blueprint-overlay"></div>
+                    </div>
+                    <div class="machine-specs">
+                        <h3>Chatbot Application</h3>
+                        <div class="spec-row"><span>Architecture:</span> <span class="spec-val">Prototype AI</span></div>
+                        <div class="spec-row"><span>Powertrain:</span> <span class="spec-val">Python / NLP</span></div>
+                        <div class="spec-row"><span>Horsepower:</span> <span class="spec-val bmw-cyan-text">1200 HP</span></div>
+                        <div class="spec-row"><span>Deployment:</span> <span class="spec-val">Live Server</span></div>
+                        <div class="machine-actions">
+                            <a href="https://polytalk-ai.vercel.app/" target="_blank" class="hud-btn glow">Live</a>
+                            <a href="https://github.com/Sanjaycs096/CHATBOT.git" target="_blank" class="hud-btn outline">Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vehicle 3: Student Info -->
+                <div class="machine-card reveal delay-3">
+                    <div class="machine-image">
+                        <div class="garage-door"></div>
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80" alt="Student Info">
+                        <div class="blueprint-overlay"></div>
+                    </div>
+                    <div class="machine-specs">
+                        <h3>Student Information System</h3>
+                        <div class="spec-row"><span>Architecture:</span> <span class="spec-val">Admin Grid</span></div>
+                        <div class="spec-row"><span>Powertrain:</span> <span class="spec-val">Python / JS</span></div>
+                        <div class="spec-row"><span>Horsepower:</span> <span class="spec-val">850 HP</span></div>
+                        <div class="spec-row"><span>Deployment:</span> <span class="spec-val">Supabase Data</span></div>
+                        <div class="machine-actions">
+                            <a href="https://student-info-dev.vercel.app/" target="_blank" class="hud-btn glow">Live</a>
+                            <a href="https://github.com/Sanjaycs096/STUDENT-INFORMATION-SYSTEM.git" target="_blank" class="hud-btn outline">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle 4: Railway -->
+                <div class="machine-card reveal delay-1">
+                    <div class="machine-image">
+                        <div class="garage-door"></div>
+                        <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=80" alt="Railway">
+                        <div class="blueprint-overlay"></div>
+                    </div>
+                    <div class="machine-specs">
+                        <h3>Railway Reservation System</h3>
+                        <div class="spec-row"><span>Architecture:</span> <span class="spec-val">Mass Transit</span></div>
+                        <div class="spec-row"><span>Powertrain:</span> <span class="spec-val">React / Node.js</span></div>
+                        <div class="spec-row"><span>Horsepower:</span> <span class="spec-val">1050 HP</span></div>
+                        <div class="spec-row"><span>Deployment:</span> <span class="spec-val">Neon DB Cluster</span></div>
+                        <div class="machine-actions">
+                            <a href="https://rail-net-eta.vercel.app/" target="_blank" class="hud-btn glow">Live</a>
+                            <a href="https://github.com/Sanjaycs096/Railway-Reservation.git" target="_blank" class="hud-btn outline">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle 5: House Price -->
+                <div class="machine-card reveal delay-2">
+                    <div class="machine-image">
+                        <div class="garage-door"></div>
+                        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800&q=80" alt="House">
+                        <div class="blueprint-overlay"></div>
+                    </div>
+                    <div class="machine-specs">
+                        <h3>House Price Prediction</h3>
+                        <div class="spec-row"><span>Architecture:</span> <span class="spec-val">Data Model</span></div>
+                        <div class="spec-row"><span>Powertrain:</span> <span class="spec-val">Python / ML</span></div>
+                        <div class="spec-row"><span>Horsepower:</span> <span class="spec-val bmw-cyan-text">800 HP</span></div>
+                        <div class="spec-row"><span>Deployment:</span> <span class="spec-val">Jupyter Lab</span></div>
+                        <div class="machine-actions">
+                            <a href="#" target="_blank" class="hud-btn glow" style="opacity: 0.5; cursor: not-allowed;">Offline</a>
+                            <a href="https://github.com/Sanjaycs096/House_Price_Prediction.git" target="_blank" class="hud-btn outline">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle 6: WebSense -->
+                <div class="machine-card reveal delay-3">
+                    <div class="machine-image">
+                        <div class="garage-door"></div>
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Security">
+                        <div class="blueprint-overlay"></div>
+                    </div>
+                    <div class="machine-specs">
+                        <h3>WebSense Toolkit</h3>
+                        <div class="spec-row"><span>Architecture:</span> <span class="spec-val">Defense Systems</span></div>
+                        <div class="spec-row"><span>Powertrain:</span> <span class="spec-val">Python Cyber</span></div>
+                        <div class="spec-row"><span>Horsepower:</span> <span class="spec-val">900 HP</span></div>
+                        <div class="spec-row"><span>Deployment:</span> <span class="spec-val">Sec-Lab</span></div>
+                        <div class="machine-actions">
+                            <a href="#" target="_blank" class="hud-btn glow" style="opacity: 0.5; cursor: not-allowed;">Secure</a>
+                            <a href="https://github.com/Sanjaycs096/WebSense_Toolkit.git" target="_blank" class="hud-btn outline">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle 7: WAF -->
+                <div class="machine-card reveal delay-1">
+                    <div class="machine-image">
+                        <div class="garage-door"></div>
+                        <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80" alt="WAF">
+                        <div class="blueprint-overlay"></div>
+                    </div>
+                    <div class="machine-specs">
+                        <h3>Intelligent WAF</h3>
+                        <div class="spec-row"><span>Architecture:</span> <span class="spec-val">Firewall Mesh</span></div>
+                        <div class="spec-row"><span>Powertrain:</span> <span class="spec-val">Python Defense</span></div>
+                        <div class="spec-row"><span>Horsepower:</span> <span class="spec-val bmw-red-text">1400 HP</span></div>
+                        <div class="spec-row"><span>Deployment:</span> <span class="spec-val">Border Router</span></div>
+                        <div class="machine-actions">
+                            <a href="#" target="_blank" class="hud-btn glow" style="opacity: 0.5; cursor: not-allowed;">Classified</a>
+                            <a href="https://github.com/Sanjaycs096/Intelligent_WAF.git" target="_blank" class="hud-btn outline">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle 8: Word Freq -->
+                <div class="machine-card reveal delay-2">
+                    <div class="machine-image">
+                        <div class="garage-door"></div>
+                        <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=800&q=80" alt="Word Freq">
+                        <div class="blueprint-overlay"></div>
+                    </div>
+                    <div class="machine-specs">
+                        <h3>Word Frequency Counter</h3>
+                        <div class="spec-row"><span>Architecture:</span> <span class="spec-val">Data Analysis</span></div>
+                        <div class="spec-row"><span>Powertrain:</span> <span class="spec-val">Python CLI</span></div>
+                        <div class="spec-row"><span>Horsepower:</span> <span class="spec-val">650 HP</span></div>
+                        <div class="spec-row"><span>Deployment:</span> <span class="spec-val">Local Script</span></div>
+                        <div class="machine-actions">
+                            <a href="https://github.com/Sanjaycs096/Word-Frequency-Counter.git" target="_blank" class="hud-btn outline" style="width: 100%;">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle 9: FillPill -->
+                <div class="machine-card reveal delay-3">
+                    <div class="machine-image">
+                        <div class="garage-door"></div>
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5e4a83e08?auto=format&fit=crop&w=800&q=80" alt="FillPill">
+                        <div class="blueprint-overlay"></div>
+                    </div>
+                    <div class="machine-specs">
+                        <h3>FillPill Smart Reminder</h3>
+                        <div class="spec-row"><span>Architecture:</span> <span class="spec-val">Health Tech</span></div>
+                        <div class="spec-row"><span>Powertrain:</span> <span class="spec-val">Mobile Proto</span></div>
+                        <div class="spec-row"><span>Horsepower:</span> <span class="spec-val">700 HP</span></div>
+                        <div class="spec-row"><span>Deployment:</span> <span class="spec-val">Device Local</span></div>
+                        <div class="machine-actions">
+                            <a href="https://github.com/Sanjaycs096/FillPill.git" target="_blank" class="hud-btn outline" style="width: 100%;">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Engineering Blueprint (Skills/Experience) Section -->
+        <section id="engineering" class="section dark-panel blueprint-bg">
+            <h2 class="section-title reveal"><span class="m-logo">///</span> ENGINEERING BLUEPRINTS</h2>
+            <div class="blueprint-timeline reveal delay-1">
+                
+                <div class="blueprint-node">
+                    <div class="cad-dot"></div>
+                    <div class="cad-content">
+                        <h4>Full Stack Development (Java)</h4>
+                        <h5>Infosys Springboard</h5>
+                        <p class="cad-details">Engineered high-performance backend modules utilizing Java. Optimized data structures achieving 30% reduction in query execution time.</p>
+                    </div>
+                </div>
+                
+                <div class="blueprint-node">
+                    <div class="cad-dot"></div>
+                    <div class="cad-content">
+                        <h4>Java Architecture</h4>
+                        <h5>Codebind Technologies</h5>
+                        <p class="cad-details">Architected modular Java systems. Implemented design patterns for robust, scalable enterprise applications.</p>
+                    </div>
+                </div>
+
+                <div class="blueprint-node">
+                    <div class="cad-dot"></div>
+                    <div class="cad-content">
+                        <h4>System Development</h4>
+                        <h5>NSIC</h5>
+                        <p class="cad-details">Deployed critical business logic algorithms. Collaborated on CI/CD pipelines to streamline deployment cycles.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Security Lab (Cybersecurity Operations Center) -->
+        <section id="security-lab" class="section">
+            <h2 class="section-title reveal"><span class="m-logo">///</span> CYBERSECURITY COMMAND CENTER</h2>
+            <div class="soc-dashboard reveal delay-1">
+                <!-- Terminal -->
+                <div class="soc-terminal">
+                    <div class="term-header">
+                        <span class="red-dot"></span><span class="yellow-dot"></span><span class="green-dot"></span>
+                        <span class="term-title">root@bmw-protocol: /opt/security</span>
+                    </div>
+                    <div class="term-body" id="soc-term-body">
+                        <!-- Populated by terminal.js -->
+                    </div>
+                </div>
+
+                <!-- Threat Radar -->
+                <div class="soc-radar">
+                    <div class="radar-scanner">
+                        <div class="radar-beam"></div>
+                    </div>
+                    <div class="radar-stats">
+                        <p>PACKETS: <span class="bmw-cyan-text" id="packet-count">14,205</span>/s</p>
+                        <p>FIREWALL: <span class="bmw-red-text">LOCKED</span></p>
+                        <p>ENCRYPTION: AES-256-GCM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BMW Showroom -->
+        <section id="showroom" class="section dark-panel showroom-bg">
+            <h2 class="section-title reveal"><span class="m-logo">///</span> BMW MUSEUM</h2>
+            
+            <div class="showroom-3d-container reveal delay-1">
+                <div class="rotating-platform">
+                    <!-- BMW Card 1 -->
+                    <div class="showroom-car-card">
+                        <img src="https://images.unsplash.com/photo-1556800572-1b8aeef2c54f?auto=format&fit=crop&w=800&q=80" alt="BMW M4">
+                        <div class="car-spec-sheet">
+                            <h3>M4 COMPETITION</h3>
+                            <p>TwinPower Turbo Inline 6</p>
+                            <div class="spec-bar"><div class="fill" style="width: 90%;"></div></div>
+                        </div>
+                    </div>
+                    <!-- BMW Card 2 -->
+                    <div class="showroom-car-card">
+                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80" alt="BMW M8">
+                        <div class="car-spec-sheet">
+                            <h3>M8 GRAN COUPE</h3>
+                            <p>4.4L V8 TwinPower Turbo</p>
+                            <div class="spec-bar"><div class="fill bmw-red-bg" style="width: 100%;"></div></div>
+                        </div>
+                    </div>
+                    <!-- BMW Card 3 -->
+                    <div class="showroom-car-card">
+                        <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80" alt="BMW i8">
+                        <div class="car-spec-sheet">
+                            <h3>i8 ROADSTER</h3>
+                            <p>Hybrid Electrified Performance</p>
+                            <div class="spec-bar"><div class="fill bmw-cyan-bg" style="width: 85%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Control -->
+        <section id="mission-control" class="section">
+            <h2 class="section-title reveal"><span class="m-logo">///</span> MISSION CONTROL</h2>
+            <div class="mission-grid reveal delay-1">
+                <div class="mission-terminal-form" style="text-align: center;">
+                    <h3>SECURE TRANSMISSION PROTOCOL</h3>
+                    <p style="color: #aaa; margin-bottom: 30px;">Direct channels to Chief Engineer</p>
+                    
+                    <h2 class="bmw-cyan-text" style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 20px;">Sanjaykumar M</h2>
+                    
+                    <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
+                        <a href="https://github.com/Sanjaycs096" target="_blank" class="hud-btn glow" style="font-size: 1.2rem; padding: 15px 30px;"><i class="fab fa-github"></i> GITHUB</a>
+                        <a href="https://www.linkedin.com/in/sanjay-kumar-m-689369280" target="_blank" class="hud-btn glow" style="font-size: 1.2rem; padding: 15px 30px;"><i class="fab fa-linkedin"></i> LINKEDIN</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Audio Elements -->
+    <audio id="sfx-engine-start" src="" preload="auto"></audio>
+    <audio id="sfx-type" src="" preload="auto"></audio>
+    <audio id="sfx-beep" src="" preload="auto"></audio>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/cockpit.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/easterEgg.js"></script>
+    <script src="js/garage.js"></script>
+</body>
+</html>

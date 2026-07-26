@@ -1,0 +1,85 @@
+/* ==========================================
+   CSS/DASHBOARD.CSS
+   Live Cockpit & Telemetry
+   ========================================== */
+
+.hero-dashboard {
+    width: 100%;
+}
+.live-cockpit {
+    background: var(--glass-dark);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.8), 0 20px 50px rgba(0,0,0,0.9);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Primary Dials */
+.primary-dials {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.dial {
+    width: 45%;
+    position: relative;
+    text-align: center;
+}
+.dial svg {
+    width: 100%;
+    fill: none;
+    stroke-width: 4;
+    stroke-linecap: round;
+}
+.dial-bg { stroke: rgba(255,255,255,0.05); }
+.dial-fill { stroke-dasharray: 125; stroke-dashoffset: 125; transition: stroke-dashoffset 0.5s ease-out; }
+#rpm-fill { stroke: var(--bmw-m-red); }
+#speed-fill { stroke: var(--bmw-cyan); }
+
+.dial-val {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+.unit { font-family: var(--font-body); font-size: 0.8rem; color: #888; display: block; margin-top: -10px; }
+
+/* Secondary Telemetry */
+.telemetry-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+.tel-card {
+    background: rgba(0,0,0,0.5);
+    padding: 10px 15px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    border-left: 2px solid var(--bmw-white);
+}
+.tel-card span { font-size: 0.85rem; color: #aaa; width: 100px; font-weight: 600; }
+.mini-bar {
+    flex: 1; height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; margin: 0 15px; overflow: hidden;
+}
+.mini-bar .fill { height: 100%; width: 0; transition: width 0.3s; }
+.tel-card .val-right { width: 60px; text-align: right; color: #fff; }
+
+/* Stats Readout */
+.stats-readout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--glass-border);
+    padding-top: 20px;
+}
+.stat { text-align: center; }
+.stat .label { display: block; font-size: 0.7rem; color: #666; letter-spacing: 1px; }
+.stat .value { display: block; font-family: var(--font-heading); font-size: 1.5rem; color: var(--bmw-cyan); text-shadow: 0 0 10px rgba(0,243,255,0.3); }

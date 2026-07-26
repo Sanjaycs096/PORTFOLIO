@@ -1,0 +1,110 @@
+/* ==========================================
+   CSS/THEME.CSS
+   BMW Protocol Variables & Base Styles
+   ========================================== */
+
+:root {
+    /* BMW M Colors */
+    --bmw-m-light-blue: #0087d1;
+    --bmw-m-blue: #0033a0;
+    --bmw-m-red: #e7222e;
+    
+    /* Protocol Colors */
+    --bmw-cyan: #00f3ff;
+    --bmw-white: #f4f6f9;
+    
+    /* Backgrounds */
+    --carbon-black: #08090a;
+    --matte-black: #101216;
+    --gun-metal: #1a1c23;
+    
+    /* Glass */
+    --glass-dark: rgba(16, 18, 22, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    
+    /* Typography */
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+    --font-accent: 'Audiowide', cursive;
+}
+
+/* Base Adjustments */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none !important; /* Managed by JS HUD Cursor */
+}
+
+body.garage-theme {
+    background-color: var(--carbon-black);
+    color: var(--bmw-white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Background Effects Container */
+#particles-bg, .carbon-fiber-overlay, .digital-rain-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+}
+.carbon-fiber-overlay {
+    background: repeating-linear-gradient(45deg, #101216 25%, transparent 25%, transparent 75%, #101216 75%, #101216), repeating-linear-gradient(45deg, #101216 25%, #08090a 25%, #08090a 75%, #101216 75%, #101216);
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+    opacity: 0.15;
+}
+.digital-rain-overlay {
+    background: radial-gradient(circle at center, transparent 0%, var(--carbon-black) 100%);
+    z-index: 2;
+}
+
+/* Typography Utility */
+.bmw-title { font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 2px; }
+.bmw-cyan-text { color: var(--bmw-cyan); text-shadow: 0 0 10px rgba(0,243,255,0.4); }
+.bmw-red-text { color: var(--bmw-m-red); text-shadow: 0 0 10px rgba(231,34,46,0.4); }
+.bmw-blue-text { color: var(--bmw-m-light-blue); }
+
+.bmw-cyan-bg { background-color: var(--bmw-cyan); box-shadow: 0 0 10px rgba(0,243,255,0.4); }
+.bmw-red-bg { background-color: var(--bmw-m-red); box-shadow: 0 0 10px rgba(231,34,46,0.4); }
+.bmw-blue-bg { background-color: var(--bmw-m-light-blue); box-shadow: 0 0 10px rgba(0,135,209,0.4); }
+
+/* Buttons */
+.hud-btn {
+    font-family: var(--font-heading);
+    background: transparent;
+    border: 1px solid var(--bmw-cyan);
+    color: var(--bmw-cyan);
+    padding: 10px 25px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+.hud-btn.glow {
+    background: rgba(0,243,255,0.1);
+    box-shadow: inset 0 0 10px rgba(0,243,255,0.2), 0 0 10px rgba(0,243,255,0.2);
+}
+.hud-btn:hover {
+    background: var(--bmw-cyan);
+    color: var(--carbon-black);
+    box-shadow: 0 0 20px var(--bmw-cyan);
+}
+.hud-btn.outline {
+    border-color: rgba(255,255,255,0.2);
+    color: #aaa;
+}
+.hud-btn.outline:hover {
+    border-color: var(--bmw-m-red);
+    color: var(--bmw-m-red);
+    background: rgba(231,34,46,0.1);
+    box-shadow: 0 0 20px rgba(231,34,46,0.4);
+}
+.massive-btn { width: 100%; padding: 15px; font-size: 1.1rem; }

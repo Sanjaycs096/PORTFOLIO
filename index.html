@@ -1,514 +1,1230 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sanjaykumar • Full-Stack Developer</title>
-  <meta name="description" content="Portfolio of Sanjaykumar — Full‑stack web developer skilled in Java, Python, JavaScript.  Projects, internships, certifications, and more." />
-  <meta name="theme-color" content="#0b1220" />
-  <meta property="og:title" content="Sanjaykumar • Full-Stack Developer" />
-  <meta property="og:description" content="Projects, skills, internships, certifications, education. Modern, responsive, and recruiter‑friendly portfolio." />
-  <meta property="og:type" content="website" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sanjaykumar M - Full Stack Developer & Software Engineer Portfolio. Discover my projects, skills, and experience in modern web development, machine learning, and cybersecurity.">
+    <meta name="keywords" content="Sanjaykumar M, Software Engineer, Full Stack Developer, AI, Cybersecurity, Portfolio">
+    <meta name="author" content="Sanjaykumar M">
+    <link rel="canonical" href="https://sanjaykumar-m.dev">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Sanjaykumar M | Software Engineer">
+    <meta property="og:description" content="Premium portfolio showcasing projects, skills, and professional experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanjaykumar-m.dev">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sanjaykumar M | Software Engineer">
+    <meta name="twitter:description" content="Premium portfolio showcasing projects, skills, and professional experience.">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Devicon: Technology icons CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-  <!-- Font Awesome for brand icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <title>Sanjaykumar M | Software Engineer</title>
 
-  <!-- Favicon: static path (optional); JS will generate a dynamic PNG to ensure it shows -->
-  <link rel="icon" href="assets/sk-favicon.png" type="image/png">
+    <!-- Schema.org Person JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sanjaykumar M",
+      "jobTitle": "Software Engineer",
+      "url": "https://sanjaykumar-m.dev",
+      "sameAs": [
+        "https://github.com/Sanjaycs096",
+        "https://linkedin.com/in/sanjaykumar-murugan"
+      ]
+    }
+    </script>
 
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome (Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header / Navbar -->
-  <header class="site-header" id="top">
-    <div class="container nav-container">
-      <a class="brand" href="#top" aria-label="Homepage">
-        <span class="logo">SK</span>
-        <span class="brand-text">Sanjaykumar</span>
-      </a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-      <nav class="nav" aria-label="Primary">
-        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
-        <ul class="nav-list">
-          <li><a class="nav-link active" href="#home">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#skills">Skills</a></li>
-          <li><a class="nav-link" href="#projects">Projects</a></li>
-          <li><a class="nav-link" href="#internship">Internship</a></li>
-          <li><a class="nav-link" href="#certifications">Certifications</a></li>
-          <li><a class="nav-link" href="#achievements">Activities</a></li>
-          <li><a class="nav-link" href="#education">Education</a></li>
-          <li><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-outline" aria-hidden="true"></div>
+
+    <!-- Animated Background -->
+    <div class="background-animation" aria-hidden="true">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
     </div>
-  </header>
+    
+    <!-- Floating Particles Canvas -->
+    <canvas id="particles" aria-hidden="true"></canvas>
 
-  <!-- Floating background tech icons -->
-  <div class="floating-icons" aria-hidden="true">
-    <i class="devicon-java-plain colored"></i>
-    <i class="devicon-python-plain colored"></i>
-    <i class="devicon-javascript-plain colored"></i>
-    <i class="devicon-php-plain colored"></i>
-    <i class="devicon-html5-plain colored"></i>
-    <i class="devicon-css3-plain colored"></i>
-    <i class="devicon-mysql-plain colored"></i>
-    <i class="devicon-mongodb-plain colored"></i>
-    <i class="devicon-github-original"></i>
-    <i class="devicon-vscode-plain colored"></i>
-  </div>
-
-  <!-- Hero -->
-  <main id="home" class="hero">
-    <div class="container hero-inner">
-      <div class="hero-text reveal fade-up">
-        <p class="eyebrow">Full-Stack Developer</p>
-        <h1>
-          Hi, I’m <span class="accent">Sanjaykumar</span>
-          <span class="typing" aria-live="polite"></span>
-        </h1>
-        <p class="sub">Computer Science Engineering student with hands-on experience in Java, Python, and full‑stack web development. I design, develop, and deploy practical software solutions with a focus on clean code and user-centric experiences.</p>
-        <div class="cta-row">
-          <a class="btn ghost" href="assets/Sanjay_Resume.pdf" download>
-            <span>Download Resume</span>
-          </a>
-          <a class="btn ghost" href="#projects">View Projects</a>
-          <div class="socials">
-          <a class="btn icon ghost github-cta" href="https://github.com/Sanjaycs096" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" data-tooltip="GitHub Profile">
-            <i class="devicon-github-original"></i>
-            <span class="btn-label">GitHub</span>
-          </a>
-            <a class="btn icon ghost linkedin-cta" href="https://www.linkedin.com/in/sanjaykumar-murugan" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" data-tooltip="LinkedIn Profile">
-            <i class="devicon-linkedin-plain"></i>
-            <span class="btn-label">LinkedIn</span>
-          </a>
-          </div>
+    <!-- Loading Screen -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="logo-text">S<span class="accent">K</span></span>
+            </div>
+            <div class="loader-bar-container">
+                <div class="loader-bar"></div>
+            </div>
+            <div class="loader-text">INITIALIZING...</div>
         </div>
-      </div>
-      <div class="hero-visual reveal scale-in" aria-hidden="true">
-        <div class="orb orb-a"></div>
-        <div class="orb orb-b"></div>
-        <div class="mesh-card glass">
-          <div class="dot-grid"></div>
-          <div class="pulse"></div>
-          <span>Building clean & user‑friend software.</span>
-        </div>
-      </div>
     </div>
-    <div class="hero-gradient" aria-hidden="true"></div>
-  </main>
 
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title reveal slide-in">About</h2>
-      <div class="about grid-2">
-        <div class="reveal fade-up">
-          <p>I'm a Computer Science Engineering student with strong hands-on experience in Java, Python, and full‑stack web development. I enjoy solving real-world problems by designing, building, and deploying reliable applications. I focus on clean, maintainable code and thoughtful user experience.</p>
-          <p>Beyond code, I value collaboration, curiosity, and continuous improvement — always learning, iterating, and shipping.</p>
-        </div>
-        <ul class="facts glass reveal fade-up">
-          <li><span>Location</span><b>Dindigul, Tamil Nadu, India</b></li>
-          <li><span>Open To</span><b>Internships & Placements</b></li>
-          <li><span>Interests</span><b>Full‑stack, ML basics, APIs</b></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <div class="divider" aria-hidden="true"></div>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
-  <!-- Skills -->
-  <section id="skills" class="section">
-    <div class="container">
-      <h2 class="section-title reveal slide-in">Skills</h2>
-      <div class="chips reveal fade-up">
-        <h3>Languages</h3>
-        <div class="chip-row">
-          <span class="chip"><i class="devicon-java-plain colored"></i><span>Java</span></span>
-          <span class="chip"><i class="devicon-python-plain colored"></i><span>Python</span></span>
-          <span class="chip"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></span>
-          <span class="chip"><i class="devicon-php-plain colored"></i><span>PHP</span></span>
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo" aria-label="Home">S<span class="accent">K</span></a>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            
+            <div class="nav-overlay" id="nav-menu">
+                <nav class="nav-links">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#certifications" class="nav-link">Certifications</a>
+                    <a href="#activities" class="nav-link">Activities</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="assets/Sanjaykumar_M_FullStack_Developer_Resume.pdf" class="nav-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> Resume
+                    </a>
+                </nav>
+            </div>
         </div>
-      </div>
-      <div class="chips reveal fade-up">
-        <h3>Web</h3>
-        <div class="chip-row">
-          <span class="chip"><i class="devicon-html5-plain colored"></i><span>HTML</span></span>
-          <span class="chip"><i class="devicon-css3-plain colored"></i><span>CSS</span></span>
-          <span class="chip"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></span>
-          <span class="chip"><i class="devicon-react-original colored"></i><span>React</span></span>
-          <span class="chip"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></span>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero section-padding">
+            <div class="hero-container container">
+                <div class="hero-content">
+                    <div class="badge-pill reveal-up">
+                        <span class="pulse-dot"></span> Open to Work
+                    </div>
+                    <p class="greeting reveal-up delay-1">Hello World, I'm</p>
+                    <h1 class="hero-name reveal-up delay-2">SANJAYKUMAR M</h1>
+                    
+                    <div class="typing-container reveal-up delay-3">
+                        <span class="static-text">I am a </span>
+                        <span class="typing-text" id="typing-text"></span><span class="cursor">|</span>
+                    </div>
+                    
+                    <p class="hero-description reveal-up delay-4">
+                        Passionate software engineer specializing in scalable full-stack applications, artificial intelligence, and secure systems. Crafting premium digital experiences through elegant code and modern design.
+                    </p>
+                    
+                    <div class="hero-actions reveal-up delay-5">
+                        <a href="assets/Sanjaykumar_M_FullStack_Developer_Resume.pdf" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-file-pdf"></i> Download Resume
+                        </a>
+                        <a href="#projects" class="btn btn-secondary">
+                            <i class="fas fa-code"></i> View Projects
+                        </a>
+                        <div class="social-links">
+                            <a href="https://github.com/Sanjaycs096" target="_blank" aria-label="GitHub" class="social-icon magnetic"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com/in/sanjaykumar-murugan" target="_blank" aria-label="LinkedIn" class="social-icon magnetic"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Responsive Stats -->
+                    <div class="hero-stats-grid reveal-up delay-6">
+                        <div class="stat-box glass-card">
+                            <h3 class="counter" data-target="3">0</h3>
+                            <p>Years Learning</p>
+                        </div>
+                        <div class="stat-box glass-card">
+                            <h3 class="counter" data-target="9">0</h3>
+                            <p>Projects</p>
+                        </div>
+                        <div class="stat-box glass-card">
+                            <h3 class="counter" data-target="2">0</h3>
+                            <p>Internships</p>
+                        </div>
+                        <div class="stat-box glass-card">
+                            <h3 class="counter" data-target="16">0</h3>
+                            <p>Certifications</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Premium Developer Code Card -->
+                <div class="hero-visual reveal-scale delay-4" data-parallax="true" data-speed="0.05">
+                    <div class="editor-window glass-card">
+                        <div class="editor-header">
+                            <div class="editor-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="editor-title">developer.ts</div>
+                        </div>
+                        <div class="editor-body">
+                            <pre><code class="language-typescript">
+<span class="keyword">const</span> <span class="variable">engineer</span> = {
+    <span class="property">name</span>: <span class="string">'Sanjaykumar M'</span>,
+    <span class="property">role</span>: <span class="string">'Software Engineer'</span>,
+    <span class="property">focus</span>: [<span class="string">'Full Stack'</span>, <span class="string">'AI'</span>, <span class="string">'Security'</span>],
+    <span class="property">passion</span>: <span class="keyword">true</span>,
+    
+    <span class="method">buildFuture</span>() {
+        <span class="keyword">return</span> <span class="keyword">this</span>.focus.map(<span class="param">tech</span> => 
+            <span class="keyword">this</span>.innovate(tech)
+        );
+    }
+};
+
+<span class="comment">// Let's create something amazing</span>
+<span class="variable">engineer</span>.<span class="method">buildFuture</span>();
+                            </code></pre>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Tech Icons -->
+                    <div class="float-icon icon-react"><i class="fab fa-react"></i></div>
+                    <div class="float-icon icon-python"><i class="fab fa-python"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section-padding">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">About Me<span class="accent">.</span></h2>
+                    <div class="title-line"></div>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-content reveal-left">
+                        <h3 class="about-subtitle">Professional Summary</h3>
+                        <p>I am a highly motivated Software Engineer with a strong foundation in modern web development, machine learning, and system architecture. I thrive in dynamic environments where I can apply my engineering mindset to solve complex problems and build scalable solutions.</p>
+                        
+                        <h3 class="about-subtitle mt-4">Career Objective</h3>
+                        <p>To leverage my expertise in full-stack engineering and AI to build impactful, user-centric software products at a top-tier technology company, while continuously pushing the boundaries of innovation and technical excellence.</p>
+                        
+                        <div class="quick-facts mt-4">
+                            <div class="fact-item glass-card"><i class="fas fa-map-marker-alt accent"></i> Dindigul, India</div>
+                            <div class="fact-item glass-card"><i class="fas fa-graduation-cap accent"></i> B.E CSE</div>
+                            <div class="fact-item glass-card"><i class="fas fa-language accent"></i> English, Tamil</div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-skills reveal-right">
+                        <div class="soft-skills-container glass-card">
+                            <h3 class="about-subtitle text-center mb-4">Core Strengths & Soft Skills</h3>
+                            <ul class="soft-skills-list">
+                                <li><div class="icon-wrap"><i class="fas fa-brain"></i></div> Problem Solving & Analytical Thinking</li>
+                                <li><div class="icon-wrap"><i class="fas fa-users"></i></div> Effective Communication & Teamwork</li>
+                                <li><div class="icon-wrap"><i class="fas fa-sync-alt"></i></div> Adaptability & Continuous Learning</li>
+                                <li><div class="icon-wrap"><i class="fas fa-clock"></i></div> Time Management & Organization</li>
+                                <li><div class="icon-wrap"><i class="fas fa-lightbulb"></i></div> Leadership & Mentoring</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience / Internship Section -->
+        <section id="experience" class="experience section-padding bg-alt">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Professional Experience<span class="accent">.</span></h2>
+                    <div class="title-line"></div>
+                </div>
+                
+                <div class="timeline">
+                    <!-- Experience 1 -->
+                    <div class="timeline-item reveal-up">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card tilt-card">
+                            <div class="timeline-header">
+                                <div class="company-logo-placeholder">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <div class="timeline-info">
+                                    <h3 class="timeline-title">Full Stack Developer Intern</h3>
+                                    <h4 class="timeline-company">MoviCLOUD Labs Pvt Ltd</h4>
+                                </div>
+                                <div class="timeline-date badge-pill">
+                                    <i class="fas fa-calendar-alt"></i> Feb 2026 – Jul 2026
+                                </div>
+                            </div>
+                            <p class="timeline-desc">
+                                Developed and maintained enterprise web applications including RMS, CMS, and HMS by implementing scalable frontend interfaces, backend functionality, REST APIs, authentication, and database integration within an Agile development environment.
+                            </p>
+                            <div class="tech-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">MongoDB</span>
+                            </div>
+                            
+                            <details class="exp-details mt-3">
+                                <summary class="btn-text">View Responsibilities <i class="fas fa-chevron-down"></i></summary>
+                                <ul class="details-list">
+                                    <li>Built robust RESTful APIs for internal CMS systems.</li>
+                                    <li>Integrated frontend React components with Python backend logic.</li>
+                                    <li>Managed database operations and schema design using MongoDB.</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 2 -->
+                    <div class="timeline-item reveal-up delay-1">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card tilt-card">
+                            <div class="timeline-header">
+                                <div class="company-logo-placeholder">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="timeline-info">
+                                    <h3 class="timeline-title">Machine Learning Intern</h3>
+                                    <h4 class="timeline-company">HDLC Technologies Pvt Ltd</h4>
+                                </div>
+                                <div class="timeline-date badge-pill">
+                                    <i class="fas fa-calendar-alt"></i> Jul 2025
+                                </div>
+                            </div>
+                            <p class="timeline-desc">
+                                Developed a Python-based house price prediction model using machine learning, feature engineering, and regression techniques to accurately forecast real estate values based on diverse datasets.
+                            </p>
+                            <div class="tech-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Regression</span>
+                            </div>
+                            
+                            <details class="exp-details mt-3">
+                                <summary class="btn-text">View Responsibilities <i class="fas fa-chevron-down"></i></summary>
+                                <ul class="details-list">
+                                    <li>Performed extensive data cleaning and exploratory data analysis.</li>
+                                    <li>Applied feature scaling and one-hot encoding for preprocessing.</li>
+                                    <li>Trained and evaluated multiple regression models to optimize accuracy.</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section id="education" class="education section-padding">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Education<span class="accent">.</span></h2>
+                    <div class="title-line"></div>
+                </div>
+                
+                <div class="timeline">
+                    <!-- Edu 1 -->
+                    <div class="timeline-item reveal-up">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card tilt-card">
+                            <div class="timeline-header">
+                                <div class="timeline-info">
+                                    <h3 class="timeline-title">Bachelor of Engineering (CSE)</h3>
+                                    <h4 class="timeline-company">M Kumarasamy College of Engineering</h4>
+                                </div>
+                                <div class="timeline-date badge-pill">2023 - 2027</div>
+                            </div>
+                            <div class="edu-stats mt-2">
+                                <span class="tag"><i class="fas fa-star accent"></i> CGPA: 7.3</span>
+                            </div>
+                            <p class="timeline-desc mt-2">Specialization in Computer Science Engineering. Actively involved in technical clubs, hackathons, and software engineering projects.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Edu 2 -->
+                    <div class="timeline-item reveal-up delay-1">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card tilt-card">
+                            <div class="timeline-header">
+                                <div class="timeline-info">
+                                    <h3 class="timeline-title">Higher Secondary Education</h3>
+                                    <h4 class="timeline-company">BHARATHI VIDHYALAYA MATRIC HIGHER SECONDARY SCHOOL</h4>
+                                </div>
+                                <div class="timeline-date badge-pill">2023</div>
+                            </div>
+                            <div class="edu-stats mt-2">
+                                <span class="tag"><i class="fas fa-star accent"></i> Percentage: 83.33%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects section-padding bg-alt">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Featured Projects<span class="accent">.</span></h2>
+                    <div class="title-line"></div>
+                </div>
+                
+                <!-- Project Controls: Search + Filters -->
+                <div class="project-controls reveal-up delay-1">
+                    <div class="search-box glass-card">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="project-search" placeholder="Search projects by name or tech..." aria-label="Search projects">
+                    </div>
+                    
+                    <div class="project-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                        <button class="filter-btn" data-filter="java">Java</button>
+                        <button class="filter-btn" data-filter="python">Python</button>
+                        <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                        <button class="filter-btn" data-filter="security">Cybersecurity</button>
+                        <button class="filter-btn" data-filter="iot">IoT</button>
+                    </div>
+                </div>
+                
+                <div class="project-grid" id="project-grid">
+                    
+                    <!-- Project 1 -->
+                    <div class="project-card glass-card tilt-card reveal-up" data-category="fullstack java web">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Inventory Management" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://github.com/Sanjaycs096/INVENTORY-MANAGEMENT-SYSTEM.git" target="_blank" class="btn btn-primary" aria-label="GitHub"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://inventrack-eta.vercel.app" target="_blank" class="btn btn-secondary" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
+                            </div>
+                            <div class="project-badges">
+                                <span class="badge status-live">Live</span>
+                                <span class="badge category">Full Stack</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Inventory Management System</h3>
+                            <p class="project-desc">A comprehensive inventory tracking and management platform built for scale.</p>
+                            
+                            <div class="tech-tags">
+                                <span class="tag tech-badge"><i class="fab fa-html5"></i> HTML/CSS/JS</span>
+                                <span class="tag tech-badge"><i class="fab fa-java"></i> Spring Boot</span>
+                                <span class="tag tech-badge"><i class="fas fa-database"></i> Supabase</span>
+                            </div>
+                            
+                            <details class="proj-details">
+                                <summary class="btn-text mt-3">Features & Details <i class="fas fa-chevron-down"></i></summary>
+                                <ul class="details-list">
+                                    <li>Real-time inventory tracking</li>
+                                    <li>Secure Spring Boot backend</li>
+                                    <li>Supabase database integration</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card glass-card tilt-card reveal-up delay-1" data-category="python ml ai">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt="Chatbot Application" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://github.com/Sanjaycs096/CHATBOT.git" target="_blank" class="btn btn-primary" aria-label="GitHub"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://polytalk-ai.vercel.app/" target="_blank" class="btn btn-secondary" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
+                            </div>
+                            <div class="project-badges">
+                                <span class="badge status-live">Live</span>
+                                <span class="badge category">AI</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Chatbot Application</h3>
+                            <p class="project-desc">An intelligent conversational AI interface powered by a robust Python backend.</p>
+                            
+                            <div class="tech-tags">
+                                <span class="tag tech-badge"><i class="fab fa-js"></i> Vanilla JS</span>
+                                <span class="tag tech-badge"><i class="fab fa-python"></i> Python</span>
+                            </div>
+                            
+                            <details class="proj-details">
+                                <summary class="btn-text mt-3">Features & Details <i class="fas fa-chevron-down"></i></summary>
+                                <ul class="details-list">
+                                    <li>Natural language processing logic</li>
+                                    <li>Customizable response generation</li>
+                                    <li>Seamless frontend integration</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card glass-card tilt-card reveal-up delay-2" data-category="python fullstack web">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80" alt="Student Information System" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://github.com/Sanjaycs096/STUDENT-INFORMATION-SYSTEM.git" target="_blank" class="btn btn-primary" aria-label="GitHub"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://student-info-dev.vercel.app/" target="_blank" class="btn btn-secondary" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
+                            </div>
+                            <div class="project-badges">
+                                <span class="badge status-live">Live</span>
+                                <span class="badge category">Web App</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Student Information System</h3>
+                            <p class="project-desc">A centralized portal for managing student records, grades, and administrative data.</p>
+                            
+                            <div class="tech-tags">
+                                <span class="tag tech-badge"><i class="fab fa-js"></i> JavaScript</span>
+                                <span class="tag tech-badge"><i class="fab fa-python"></i> Python</span>
+                                <span class="tag tech-badge"><i class="fas fa-database"></i> Supabase</span>
+                            </div>
+                            
+                            <details class="proj-details">
+                                <summary class="btn-text mt-3">Features & Details <i class="fas fa-chevron-down"></i></summary>
+                                <ul class="details-list">
+                                    <li>Secure authentication</li>
+                                    <li>CRUD operations for student records</li>
+                                    <li>Python-based API backend</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card glass-card tilt-card reveal-up" data-category="fullstack web">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=80" alt="Railway Reservation System" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://github.com/Sanjaycs096/RAILWAY-RESERVATION.git" target="_blank" class="btn btn-primary" aria-label="GitHub"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://railway-reservation-smoky.vercel.app/" target="_blank" class="btn btn-secondary" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
+                            </div>
+                            <div class="project-badges">
+                                <span class="badge status-live">Live</span>
+                                <span class="badge category">Full Stack</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Railway Reservation System</h3>
+                            <p class="project-desc">A robust booking engine mimicking real-world railway ticketing platforms.</p>
+                            
+                            <div class="tech-tags">
+                                <span class="tag tech-badge"><i class="fab fa-react"></i> React</span>
+                                <span class="tag tech-badge"><i class="fab fa-node-js"></i> Node.js</span>
+                                <span class="tag tech-badge"><i class="fas fa-database"></i> Neon DB</span>
+                            </div>
+                            
+                            <details class="proj-details">
+                                <summary class="btn-text mt-3">Features & Details <i class="fas fa-chevron-down"></i></summary>
+                                <ul class="details-list">
+                                    <li>Seat availability tracking</li>
+                                    <li>Dynamic routing & booking engine</li>
+                                    <li>React frontend with Node API</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card glass-card tilt-card reveal-up delay-1" data-category="python ml">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="House Price Prediction" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://github.com/Sanjaycs096/HOUSE-PRICE-PREDICTION.git" target="_blank" class="btn btn-primary" aria-label="GitHub"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://ai-houseprice.vercel.app/" target="_blank" class="btn btn-secondary" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
+                            </div>
+                            <div class="project-badges">
+                                <span class="badge status-live">Live</span>
+                                <span class="badge category">ML</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">House Price Prediction</h3>
+                            <p class="project-desc">Machine learning model capable of predicting real estate valuations.</p>
+                            
+                            <div class="tech-tags">
+                                <span class="tag tech-badge"><i class="fab fa-python"></i> Python</span>
+                                <span class="tag tech-badge"><i class="fas fa-brain"></i> Scikit-Learn</span>
+                            </div>
+                            
+                            <details class="proj-details">
+                                <summary class="btn-text mt-3">Features & Details <i class="fas fa-chevron-down"></i></summary>
+                                <ul class="details-list">
+                                    <li>Feature engineering & scaling</li>
+                                    <li>Linear regression & Random Forest</li>
+                                    <li>Interactive web interface</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card glass-card tilt-card reveal-up delay-2" data-category="fullstack utilities web">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="WebSense Toolkit" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://github.com/Sanjaycs096/WEBSENSE-TOOLKIT.git" target="_blank" class="btn btn-primary" aria-label="GitHub"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://web-sense-toolkit.vercel.app" target="_blank" class="btn btn-secondary" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
+                            </div>
+                            <div class="project-badges">
+                                <span class="badge status-live">Live</span>
+                                <span class="badge category">Utilities</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">WebSense Toolkit</h3>
+                            <p class="project-desc">A comprehensive suite of web developer tools and utilities.</p>
+                            
+                            <div class="tech-tags">
+                                <span class="tag tech-badge"><i class="fab fa-react"></i> React</span>
+                                <span class="tag tech-badge"><i class="fab fa-node-js"></i> Node.js</span>
+                                <span class="tag tech-badge"><i class="fas fa-fire"></i> Firebase</span>
+                            </div>
+                            
+                            <details class="proj-details">
+                                <summary class="btn-text mt-3">Features & Details <i class="fas fa-chevron-down"></i></summary>
+                                <ul class="details-list">
+                                    <li>React-based responsive UI</li>
+                                    <li>Supabase & Firebase integration</li>
+                                    <li>Multiple embedded utility applications</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Project 7 -->
+                    <div class="project-card glass-card tilt-card reveal-up" data-category="security python ml ai">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Intelligent WAF" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://github.com/Sanjaycs096/WEB-APPLICATION-FIREWALL.git" target="_blank" class="btn btn-primary" aria-label="GitHub"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                            <div class="project-badges">
+                                <span class="badge status-dev">Dev</span>
+                                <span class="badge category">Security</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Intelligent WAF</h3>
+                            <p class="project-desc">A next-generation Web Application Firewall using Transformer ML models.</p>
+                            
+                            <div class="tech-tags">
+                                <span class="tag tech-badge"><i class="fab fa-python"></i> Python</span>
+                                <span class="tag tech-badge"><i class="fab fa-react"></i> React</span>
+                                <span class="tag tech-badge"><i class="fas fa-shield-alt"></i> Security</span>
+                            </div>
+                            
+                            <details class="proj-details">
+                                <summary class="btn-text mt-3">Features & Details <i class="fas fa-chevron-down"></i></summary>
+                                <ul class="details-list">
+                                    <li>Anomaly detection via Transformers</li>
+                                    <li>Real-time traffic analysis</li>
+                                    <li>Cybersecurity threat mitigation</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 8 -->
+                    <div class="project-card glass-card tilt-card reveal-up delay-1" data-category="python utilities">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80" alt="Word Frequency Counter" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://github.com/Sanjaycs096/WORD-FREQUENCY-COUNTER.git" target="_blank" class="btn btn-primary" aria-label="GitHub"><i class="fab fa-github"></i> Code</a>
+                                <a href="https://word-frequency-analyzer-amber.vercel.app" target="_blank" class="btn btn-secondary" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i> Live</a>
+                            </div>
+                            <div class="project-badges">
+                                <span class="badge status-live">Live</span>
+                                <span class="badge category">Utilities</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Word Frequency Counter</h3>
+                            <p class="project-desc">Text analysis tool for calculating word frequencies and text metrics.</p>
+                            
+                            <div class="tech-tags">
+                                <span class="tag tech-badge"><i class="fab fa-python"></i> Python</span>
+                                <span class="tag tech-badge"><i class="fab fa-js"></i> JavaScript</span>
+                            </div>
+                            
+                            <details class="proj-details">
+                                <summary class="btn-text mt-3">Features & Details <i class="fas fa-chevron-down"></i></summary>
+                                <ul class="details-list">
+                                    <li>Fast text processing algorithms</li>
+                                    <li>Data visualization interface</li>
+                                    <li>Python REST API backend</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Project 9 -->
+                    <div class="project-card glass-card tilt-card reveal-up delay-2" data-category="security iot">
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80" alt="FillPill IoT" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://github.com/S-G-Rathenesh/FillPill.git" target="_blank" class="btn btn-primary" aria-label="GitHub"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                            <div class="project-badges">
+                                <span class="badge status-dev">IoT</span>
+                                <span class="badge category">IoT App</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">FillPill Smart Reminder</h3>
+                            <p class="project-desc">IoT-based automated medication dispensing and tracking system.</p>
+                            
+                            <div class="tech-tags">
+                                <span class="tag tech-badge"><i class="fas fa-microchip"></i> IoT / C++</span>
+                                <span class="tag tech-badge"><i class="fas fa-server"></i> Backend API</span>
+                            </div>
+                            
+                            <details class="proj-details">
+                                <summary class="btn-text mt-3">Features & Details <i class="fas fa-chevron-down"></i></summary>
+                                <ul class="details-list">
+                                    <li>Hardware-software integration via APIs</li>
+                                    <li>Automated scheduling triggers</li>
+                                    <li>Remote tracking dashboard</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Dashboard Section -->
+        <section id="skills" class="skills section-padding">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Technical Expertise<span class="accent">.</span></h2>
+                    <div class="title-line"></div>
+                </div>
+                
+                <div class="skills-dashboard">
+                    <!-- Programming -->
+                    <div class="skill-group glass-card reveal-up">
+                        <h3 class="skill-cat-title"><i class="fas fa-code"></i> Programming</h3>
+                        <div class="skill-card hover-glow">
+                            <i class="fab fa-python skill-icon"></i>
+                            <div class="skill-info">
+                                <h4>Python</h4>
+                                <span class="level">Advanced</span>
+                            </div>
+                        </div>
+                        <div class="skill-card hover-glow">
+                            <i class="fab fa-java skill-icon"></i>
+                            <div class="skill-info">
+                                <h4>Java</h4>
+                                <span class="level">Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="skill-card hover-glow">
+                            <i class="fab fa-js skill-icon"></i>
+                            <div class="skill-info">
+                                <h4>JavaScript</h4>
+                                <span class="level">Basic</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Frontend -->
+                    <div class="skill-group glass-card reveal-up delay-1">
+                        <h3 class="skill-cat-title"><i class="fas fa-layer-group"></i> Frontend</h3>
+                        <div class="skill-card hover-glow">
+                            <i class="fab fa-react skill-icon"></i>
+                            <div class="skill-info">
+                                <h4>React</h4>
+                                <span class="level">Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="skill-card hover-glow">
+                            <i class="fab fa-html5 skill-icon"></i>
+                            <div class="skill-info">
+                                <h4>HTML5/CSS3</h4>
+                                <span class="level">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Backend & DB -->
+                    <div class="skill-group glass-card reveal-up delay-2">
+                        <h3 class="skill-cat-title"><i class="fas fa-server"></i> Backend & DB</h3>
+                        <div class="skill-card hover-glow">
+                            <i class="fab fa-node-js skill-icon"></i>
+                            <div class="skill-info">
+                                <h4>Node.js</h4>
+                                <span class="level">Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="skill-card hover-glow">
+                            <i class="fas fa-leaf skill-icon"></i>
+                            <div class="skill-info">
+                                <h4>Spring Boot</h4>
+                                <span class="level">Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="skill-card hover-glow">
+                            <i class="fas fa-database skill-icon"></i>
+                            <div class="skill-info">
+                                <h4>SQL / Supabase</h4>
+                                <span class="level">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cloud & Tools -->
+                    <div class="skill-group glass-card reveal-up delay-3">
+                        <h3 class="skill-cat-title"><i class="fas fa-tools"></i> Cloud & Tools</h3>
+                        <div class="skill-tags">
+                            <span class="tag tech">Git / GitHub</span>
+                            <span class="tag tech">Vercel / Render</span>
+                            <span class="tag tech">Machine Learning</span>
+                            <span class="tag tech">Cybersecurity</span>
+                            <span class="tag tech">RESTful APIs</span>
+                            <span class="tag tech">Agile Methodology</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Dashboard Section (NEW) -->
+        <section id="certifications" class="certifications section-padding bg-alt">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Certifications<span class="accent">.</span></h2>
+                    <div class="title-line"></div>
+                </div>
+                
+                <!-- Search & Filters -->
+                <div class="cert-controls reveal-up delay-1">
+                    <div class="search-box glass-card">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="cert-search" placeholder="Search certifications..." aria-label="Search certifications">
+                    </div>
+                </div>
+                
+                <div class="certs-dashboard-grid" id="certs-grid">
+                    <!-- Cert 1 -->
+                    <div class="cert-dashboard-card glass-card hover-glow reveal-up">
+                        <div class="cert-header">
+                            <i class="fas fa-shield-alt cert-provider-icon"></i>
+                            <span class="badge status-live">Completed</span>
+                        </div>
+                        <h3 class="cert-title">IBM Cybersecurity</h3>
+                        <h4 class="cert-provider">IBM SkillsBuild</h4>
+                        <details class="proj-details" name="certifications">
+                            <summary class="btn-text mt-3">Skills Gained <i class="fas fa-chevron-down"></i></summary>
+                            <ul class="details-list">
+                                <li>Network Security Basics</li>
+                                <li>Threat Intelligence</li>
+                                <li>Cryptography Concepts</li>
+                            </ul>
+                        </details>
+                        <a href="assets/IBM- cyber security.pdf" target="_blank" class="btn btn-secondary mt-3 btn-block" aria-label="View Credential"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                    </div>
+
+                    <!-- Cert 2 -->
+                    <div class="cert-dashboard-card glass-card hover-glow reveal-up delay-1">
+                        <div class="cert-header">
+                            <i class="fas fa-robot cert-provider-icon"></i>
+                            <span class="badge status-live">Completed</span>
+                        </div>
+                        <h3 class="cert-title">Artificial Intelligence</h3>
+                        <h4 class="cert-provider">IBM SkillsBuild</h4>
+                        <details class="proj-details" name="certifications">
+                            <summary class="btn-text mt-3">Skills Gained <i class="fas fa-chevron-down"></i></summary>
+                            <ul class="details-list">
+                                <li>Machine Learning Basics</li>
+                                <li>AI Ethics</li>
+                                <li>Data Processing</li>
+                            </ul>
+                        </details>
+                        <a href="assets/IBM_ Artificial Intelligence.pdf" target="_blank" class="btn btn-secondary mt-3 btn-block" aria-label="View Credential"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                    </div>  
+
+                    <!-- Cert 3 -->
+                    <div class="cert-dashboard-card glass-card hover-glow reveal-up delay-2">
+                        <div class="cert-header">
+                            <i class="fas fa-microchip cert-provider-icon"></i>
+                            <span class="badge status-live">Completed</span>
+                        </div>
+                        <h3 class="cert-title">Emerging Tech</h3>
+                        <h4 class="cert-provider">IBM SkillsBuild</h4>
+                        <details class="proj-details" name="certifications">
+                            <summary class="btn-text mt-3">Skills Gained <i class="fas fa-chevron-down"></i></summary>
+                            <ul class="details-list">
+                                <li>Cloud Computing</li>
+                                <li>IoT</li>
+                                <li>AI/ML Overview</li>
+                            </ul>
+                        </details>
+                        <a href="assets/emerging tech IBM.pdf" target="_blank" class="btn btn-secondary mt-3 btn-block" aria-label="View Credential"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                    </div>
+
+                    <!-- Cert 4 -->
+                    <div class="cert-dashboard-card glass-card hover-glow reveal-up">
+                        <div class="cert-header">
+                            <i class="fas fa-lock cert-provider-icon"></i>
+                            <span class="badge status-live">Completed</span>
+                        </div>
+                        <h3 class="cert-title">Infosys Cyber Security</h3>
+                        <h4 class="cert-provider">Infosys Springboard</h4>
+                        <details class="proj-details" name="certifications">
+                            <summary class="btn-text mt-3">Skills Gained <i class="fas fa-chevron-down"></i></summary>
+                            <ul class="details-list">
+                                <li>Application Security</li>
+                                <li>Cyber Threats</li>
+                                <li>Cryptography</li>
+                            </ul>
+                        </details>
+                        <a href="assets/Infosys Cyber Security.pdf" target="_blank" class="btn btn-secondary mt-3 btn-block" aria-label="View Credential"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                    </div>
+
+                    <!-- Cert 5 -->
+                    <div class="cert-dashboard-card glass-card hover-glow reveal-up delay-1">
+                        <div class="cert-header">
+                            <i class="fas fa-user-secret cert-provider-icon"></i>
+                            <span class="badge status-live">Completed</span>
+                        </div>
+                        <h3 class="cert-title">Information Security</h3>
+                        <h4 class="cert-provider">Academic / General</h4>
+                        <details class="proj-details" name="certifications">
+                            <summary class="btn-text mt-3">Skills Gained <i class="fas fa-chevron-down"></i></summary>
+                            <ul class="details-list">
+                                <li>InfoSec Governance</li>
+                                <li>Access Control</li>
+                                <li>Risk Management</li>
+                            </ul>
+                        </details>
+                        <a href="assets/information security.pdf" target="_blank" class="btn btn-secondary mt-3 btn-block" aria-label="View Credential"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                    </div>
+
+                    <!-- Cert 6 -->
+                    <div class="cert-dashboard-card glass-card hover-glow reveal-up delay-2">
+                        <div class="cert-header">
+                            <i class="fas fa-chart-bar cert-provider-icon"></i>
+                            <span class="badge status-live">Completed</span>
+                        </div>
+                        <h3 class="cert-title">Data Science Mastery</h3>
+                        <h4 class="cert-provider">BoardInfinity</h4>
+                        <details class="proj-details" name="certifications">
+                            <summary class="btn-text mt-3">Skills Gained <i class="fas fa-chevron-down"></i></summary>
+                            <ul class="details-list">
+                                <li>Data Analysis</li>
+                                <li>Python</li>
+                                <li>Statistics</li>
+                            </ul>
+                        </details>
+                        <a href="assets/Boardinfinity(data_science).pdf" target="_blank" class="btn btn-secondary mt-3 btn-block" aria-label="View Credential"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                    </div>
+                    
+                    
+                    <!-- Cert 9 -->
+                    <div class="cert-dashboard-card glass-card hover-glow reveal-up delay-2">
+                        <div class="cert-header">
+                            <i class="fas fa-industry cert-provider-icon"></i>
+                            <span class="badge status-live">Completed</span>
+                        </div>
+                        <h3 class="cert-title">Industry 4.0 & IIoT</h3>
+                        <h4 class="cert-provider">Academic / General</h4>
+                        <details class="proj-details" name="certifications">
+                            <summary class="btn-text mt-3">Skills Gained <i class="fas fa-chevron-down"></i></summary>
+                            <ul class="details-list">
+                                <li>Industrial IoT</li>
+                                <li>Cyber-Physical Systems</li>
+                                <li>Automation</li>
+                            </ul>
+                        </details>
+                        <a href="assets/Introduction to Industry 4.0 and Industrial Internet of Things.pdf" target="_blank" class="btn btn-secondary mt-3 btn-block" aria-label="View Credential"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                    </div>
+                    
+                    <!-- Cert 10 -->
+                    <div class="cert-dashboard-card glass-card hover-glow reveal-up">
+                        <div class="cert-header">
+                            <i class="fas fa-chart-pie cert-provider-icon"></i>
+                            <span class="badge status-live">Completed</span>
+                        </div>
+                        <h3 class="cert-title">Power BI</h3>
+                        <h4 class="cert-provider">General</h4>
+                        <details class="proj-details" name="certifications">
+                            <summary class="btn-text mt-3">Skills Gained <i class="fas fa-chevron-down"></i></summary>
+                            <ul class="details-list">
+                                <li>Data Visualization</li>
+                                <li>DAX</li>
+                                <li>Dashboard Creation</li>
+                            </ul>
+                        </details>
+                        <a href="assets/power BI.pdf" target="_blank" class="btn btn-secondary mt-3 btn-block" aria-label="View Credential"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                    </div>
+                    
+                    <!-- Cert 11 -->
+                    <div class="cert-dashboard-card glass-card hover-glow reveal-up delay-1">
+                        <div class="cert-header">
+                            <i class="fab fa-hackerrank cert-provider-icon"></i>
+                            <span class="badge status-live">Completed</span>
+                        </div>
+                        <h3 class="cert-title">Problem Solving Basic</h3>
+                        <h4 class="cert-provider">HackerRank</h4>
+                        <details class="proj-details" name="certifications">
+                            <summary class="btn-text mt-3">Skills Gained <i class="fas fa-chevron-down"></i></summary>
+                            <ul class="details-list">
+                                <li>Algorithms</li>
+                                <li>Data Structures</li>
+                                <li>Logic Building</li>
+                            </ul>
+                        </details>
+                        <a href="assets/problem_solving_basic HR .pdf" target="_blank" class="btn btn-secondary mt-3 btn-block" aria-label="View Credential"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                    </div>
+                    
+                    <!-- Cert 12 -->
+                    <div class="cert-dashboard-card glass-card hover-glow reveal-up delay-2">
+                        <div class="cert-header">
+                            <i class="fas fa-brain cert-provider-icon"></i>
+                            <span class="badge status-live">Completed</span>
+                        </div>
+                        <h3 class="cert-title">Responsible & Safe AI</h3>
+                        <h4 class="cert-provider">General</h4>
+                        <details class="proj-details" name="certifications">
+                            <summary class="btn-text mt-3">Skills Gained <i class="fas fa-chevron-down"></i></summary>
+                            <ul class="details-list">
+                                <li>AI Safety</li>
+                                <li>Bias Mitigation</li>
+                                <li>Ethical AI</li>
+                            </ul>
+                        </details>
+                        <a href="assets/Responsible & Safe AI Systems.pdf" target="_blank" class="btn btn-secondary mt-3 btn-block" aria-label="View Credential"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                    </div>
+                    
+                    <!-- Cert 13 -->
+                    <div class="cert-dashboard-card glass-card hover-glow reveal-up">
+                        <div class="cert-header">
+                            <i class="fas fa-cogs cert-provider-icon"></i>
+                            <span class="badge status-live">Completed</span>
+                        </div>
+                        <h3 class="cert-title">UiPath Automation BA</h3>
+                        <h4 class="cert-provider">UiPath</h4>
+                        <details class="proj-details" name="certifications">
+                            <summary class="btn-text mt-3">Skills Gained <i class="fas fa-chevron-down"></i></summary>
+                            <ul class="details-list">
+                                <li>RPA</li>
+                                <li>Process Mapping</li>
+                                <li>Business Analysis</li>
+                            </ul>
+                        </details>
+                        <a href="assets/Uipath Automation Business Analyst Training_SANJAYKUMAR M_en-US_diploma.pdf" target="_blank" class="btn btn-secondary mt-3 btn-block" aria-label="View Credential"><i class="fas fa-external-link-alt"></i> View Credential</a>
+                    </div>
+                    
+                    <!-- Cert 14 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Section (NEW) -->
+        <section id="activities" class="activities section-padding">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Activities & Participation<span class="accent">.</span></h2>
+                    <div class="title-line"></div>
+                </div>
+                
+                <div class="timeline">
+                    <!-- Activity 1 -->
+                    <div class="timeline-item reveal-up">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card tilt-card">
+                            <div class="timeline-header">
+                                <div class="timeline-info">
+                                    <h3 class="timeline-title">Kalam Awards Participant</h3>
+                                    <h4 class="timeline-company">Technical Recognition</h4>
+                                </div>
+                                <div class="timeline-date badge-pill">Participant</div>
+                            </div>
+                            <p class="timeline-desc mt-2">Recognized for innovation and problem-solving skills</p>
+                            <a href="assets/Kalam awards.pdf" target="_blank" class="btn btn-secondary mt-2"><i class="fas fa-external-link-alt"></i> View Certificate</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Activity 2 -->
+                    <div class="timeline-item reveal-up delay-1">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card tilt-card">
+                            <div class="timeline-header">
+                                <div class="timeline-info">
+                                    <h3 class="timeline-title">Thooral Hackathon</h3>
+                                    <h4 class="timeline-company">Hackathon Participation</h4>
+                                </div>
+                                <div class="timeline-date badge-pill">Competitor</div>
+                            </div>
+                            <p class="timeline-desc mt-2">Competed in rigorous coding challenges, prototyping innovative solutions under pressure with a team.</p>
+                            <a href="assets/Certificate-Thooral_Hackathon.pdf" target="_blank" class="btn btn-secondary mt-2"><i class="fas fa-external-link-alt"></i> View Certificate</a>
+                        </div>
+                    </div>
+
+                    <!-- Activity 3 -->
+                    <div class="timeline-item reveal-up delay-2">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card tilt-card">
+                            <div class="timeline-header">
+                                <div class="timeline-info">
+                                    <h3 class="timeline-title">Drone Workshop</h3>
+                                    <h4 class="timeline-company">Technical Workshop</h4>
+                                </div>
+                                <div class="timeline-date badge-pill">Hands-on</div>
+                            </div>
+                            <p class="timeline-desc mt-2">Gained practical experience in drone technology assembly and flight dynamics.</p>
+                            <a href="assets/Drone_Workshop_Sanjay.pdf" target="_blank" class="btn btn-secondary mt-2"><i class="fas fa-external-link-alt"></i> View Certificate</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Activity 4 -->
+                    <div class="timeline-item reveal-up">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card tilt-card">
+                            <div class="timeline-header">
+                                <div class="timeline-info">
+                                    <h3 class="timeline-title">Flutter Workshop</h3>
+                                    <h4 class="timeline-company">Kongu Engineering College</h4>
+                                </div>
+                                <div class="timeline-date badge-pill">Participant</div>
+                            </div>
+                            <p class="timeline-desc mt-2">Learned modern cross-platform mobile development using the Flutter framework.</p>
+                            <a href="assets/FLUTTER KONGU.pdf" target="_blank" class="btn btn-secondary mt-2"><i class="fas fa-external-link-alt"></i> View Certificate</a>
+                        </div>
+                    </div>
+
+                    <!-- Activity 5 -->
+                    <div class="timeline-item reveal-up delay-1">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-card tilt-card">
+                            <div class="timeline-header">
+                                <div class="timeline-info">
+                                    <h3 class="timeline-title">Paranox 2.0</h3>
+                                    <h4 class="timeline-company">Symposium / Tech Fest</h4>
+                                </div>
+                                <div class="timeline-date badge-pill">Participant</div>
+                            </div>
+                            <p class="timeline-desc mt-2">Participated in technical events and demonstrations at the Paranox 2.0 tech fest.</p>
+                            <a href="assets/paranox 2.0(ori).pdf" target="_blank" class="btn btn-secondary mt-2"><i class="fas fa-external-link-alt"></i> View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section-padding bg-alt">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Get In Touch<span class="accent">.</span></h2>
+                    <div class="title-line"></div>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-info reveal-left">
+                        <h3 class="about-subtitle">Let's Connect</h3>
+                        <p>I'm currently looking for new opportunities. Whether you have a question, a project proposal, or just want to say hi, I'll try my best to get back to you!</p>
+                        
+                        <div class="contact-details mt-4">
+                            <div class="contact-item glass-card hover-glow">
+                                <i class="fas fa-envelope"></i>
+                                <div class="flex-grow-1">
+                                    <h4>Email</h4>
+                                    <a href="mailto:sanjaykumarmmkce@gmail.com" id="contact-email">sanjaykumarmmkce@gmail.com</a>
+                                </div>
+                                <button class="copy-btn" data-copy="sanjaykumarmmkce@gmail.com" aria-label="Copy Email"><i class="far fa-copy"></i></button>
+                            </div>
+                            <div class="contact-item glass-card hover-glow">
+                                <i class="fas fa-phone-alt"></i>
+                                <div class="flex-grow-1">
+                                    <h4>Phone</h4>
+                                    <a href="tel:+918122681182" id="contact-phone">+91 81226 81182</a>
+                                </div>
+                                <button class="copy-btn" data-copy="+918122681182" aria-label="Copy Phone"><i class="far fa-copy"></i></button>
+                            </div>
+                            <div class="contact-item glass-card hover-glow">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Location</h4>
+                                    <p>Dindigul, Tamil Nadu, India</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Toast Notification for Copy -->
+                        <div id="toast" class="toast glass-card">Copied to clipboard!</div>
+                    </div>
+                    
+                    <div class="contact-form-container glass-card reveal-right">
+                        <form id="contact-form" class="contact-form" novalidate>
+                            <div class="form-group">
+                                <input type="text" id="name" required class="form-control" placeholder=" ">
+                                <label for="name">Name</label>
+                                <span class="error-msg">Please enter your name.</span>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" required class="form-control" placeholder=" " pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                <label for="email">Email</label>
+                                <span class="error-msg">Please enter a valid email address.</span>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="subject" required class="form-control" placeholder=" ">
+                                <label for="subject">Subject</label>
+                                <span class="error-msg">Please enter a subject.</span>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" required class="form-control" rows="5" placeholder=" "></textarea>
+                                <label for="message">Message</label>
+                                <span class="error-msg">Please enter your message.</span>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block magnetic">
+                                <span>Send Message <i class="fas fa-paper-plane"></i></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h2>S<span class="accent">K</span></h2>
+                    <p class="developer-quote">"Engineering elegant solutions for complex problems."</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/Sanjaycs096" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/sanjaykumar-murugan" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Sanjaykumar M. All rights reserved.</p>
+            </div>
         </div>
-      </div>
-      <div class="chips reveal fade-up">
-        <h3>Databases</h3>
-        <div class="chip-row">
-          <span class="chip"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></span>
-          <span class="chip"><i class="devicon-mongodb-plain colored"></i><span>MongoDB</span></span>
-          <span class="chip"><i class="devicon-supabase-plain colored"></i><span>Supabase</span></span>
-        </div>
-      </div>
-      <div class="chips reveal fade-up">
-        <h3>Tools</h3>
-        <div class="chip-row">
-          <span class="chip"><i class="devicon-vscode-plain colored"></i><span>VS Code</span></span>
-          <span class="chip"><i class="devicon-github-original"></i><span>GitHub</span></span>
-          <span class="chip"><i class="devicon-xampp-plain colored"></i><span>XAMPP</span></span>
-        </div>
-      </div>
-      <div class="chips reveal fade-up">
-        <h3>Concepts</h3>
-        <div class="chip-row">
-          <span class="chip">OOP</span>
-          <span class="chip">DBMS</span>
-          <span class="chip">CRUD</span>
-          <span class="chip">ML Basics</span>
-        </div>
-      </div>
-    </div>
-  </section>
-  <div class="divider" aria-hidden="true"></div>
+    </footer>
 
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="section-title reveal slide-in">Projects</h2>
-      <div class="cards">
-        <article class="card glass reveal fade-up" data-tilt>
-          <h3>Inventory Management System (Java)</h3>
-          <p>Stock & sales management with database connectivity.</p>
-          <div class="stack">
-            <i class="devicon-java-plain colored" data-tooltip="Java"></i>
-            <i class="devicon-mysql-plain colored" data-tooltip="MySQL"></i>
-          </div>
-          <div class="card-actions">
-            <a class="btn icon ghost code-btn" href="https://github.com/Sanjaycs096/STOCK-MANAGEMENT-SYSTEM.git" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub" data-tooltip="View Source Code">
-              <i class="fa-brands fa-github"></i>
-              <span class="btn-label">Source</span>
-            </a>
-            <a class="btn icon ghost" href="https://inventrack-eta.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit live website" data-tooltip="Live Website">
-              <i class="fa-solid fa-globe"></i>
-              <span class="btn-label">Website</span>
-            </a>
-          </div>
-        </article>
-        <article class="card glass reveal fade-up" data-tilt>
-          <h3>Chatbot Application (Python)</h3>
-          <p>Automated responses using intent handling.</p>
-          <div class="stack">
-            <i class="devicon-python-plain colored" data-tooltip="Python"></i>
-          </div>
-          <div class="card-actions">
-            <a class="btn icon ghost code-btn" href="https://github.com/Sanjaycs096/CHATBOT.git" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub" data-tooltip="View Source Code">
-              <i class="fa-brands fa-github"></i>
-              <span class="btn-label">Source</span>
-            </a>
-          </div>
-        </article>
-        <article class="card glass reveal fade-up" data-tilt>
-          <h3>Student Information System</h3>
-          <p>Full‑stack CRUD app for student records.</p>
-          <div class="stack">
-            <i class="devicon-html5-plain colored" data-tooltip="HTML5"></i>
-            <i class="devicon-css3-plain colored" data-tooltip="CSS3"></i>
-            <i class="devicon-javascript-plain colored" data-tooltip="JavaScript"></i>
-            <i class="devicon-python-plain colored" data-tooltip="Python"></i>
-            <i class="devicon-supabase-plain colored" data-tooltip="Supabase"></i>
-          </div>
-          <div class="card-actions">
-            <a class="btn icon ghost code-btn" href="https://github.com/Sanjaycs096/STUDENT-INFORMATION-STSTEM.git" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub" data-tooltip="View Source Code">
-              <i class="fa-brands fa-github"></i>
-              <span class="btn-label">Source</span>
-            </a>
-            <a class="btn icon ghost" href="https://student-info-dev.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit live website" data-tooltip="Live Website">
-              <i class="fa-solid fa-globe"></i>
-              <span class="btn-label">Website</span>
-            </a>
-          </div>
-        </article>
-        <article class="card glass reveal fade-up" data-tilt>
-          <h3>Railway Reservation System</h3>
-          <p>Ticket booking system with Python backend.</p>
-          <div class="stack">
-            <i class="devicon-html5-plain colored" data-tooltip="HTML5"></i>
-            <i class="devicon-css3-plain colored" data-tooltip="CSS3"></i>
-            <i class="devicon-javascript-plain colored" data-tooltip="JavaScript"></i>
-            <i class="devicon-python-plain colored" data-tooltip="Python"></i>
-            <i class="devicon-mongodb-plain colored" data-tooltip="MongoDB"></i>
-          </div>
-          <div class="card-actions">
-            <a class="btn icon ghost code-btn" href="https://github.com/Sanjaycs096/Railway-Reservation.git" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub" data-tooltip="View Source Code">
-              <i class="fa-brands fa-github"></i>
-              <span class="btn-label">Source</span>
-            </a>
-          </div>
-        </article>
-        <article class="card glass reveal fade-up" data-tilt>
-          <h3>House Price Prediction</h3>
-          <p>ML‑based price prediction (internship project).</p>
-          <div class="stack">
-            <i class="devicon-html5-plain colored" data-tooltip="HTML5"></i>
-            <i class="devicon-css3-plain colored" data-tooltip="CSS3"></i>
-            <i class="devicon-javascript-plain colored" data-tooltip="JavaScript"></i>
-            <i class="devicon-python-plain colored" data-tooltip="Python"></i>
-          </div>
-          <div class="card-actions">
-            <a class="btn icon ghost code-btn" href="https://github.com/Sanjaycs096/house-price-prediction.git" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub" data-tooltip="View Source Code">
-              <i class="fa-brands fa-github"></i>
-              <span class="btn-label">Source</span>
-            </a>
-            <a class="btn icon ghost" href="https://ai-houseprice.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit live website" data-tooltip="Live Website">
-              <i class="fa-solid fa-globe"></i>
-              <span class="btn-label">Website</span>
-            </a>
-          </div>
-        </article>
-        <article class="card glass reveal fade-up" data-tilt>
-          <h3>Websense Toolkit</h3>
-          <p>Comprehensive web analysis and optimization toolkit built with modern stack.</p>
-          <div class="stack">
-            <i class="devicon-react-original colored" data-tooltip="React"></i>
-            <i class="devicon-nodejs-plain colored" data-tooltip="Node.js"></i>
-            <i class="devicon-tailwindcss-plain colored" data-tooltip="Tailwind CSS"></i>
-            <i class="devicon-supabase-plain colored" data-tooltip="Supabase"></i>
-          </div>
-          <div class="card-actions">
-            <a class="btn icon ghost code-btn" href="https://github.com/Sanjaycs096/WebSense-Toolkit.git" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub" data-tooltip="View Source Code">
-              <i class="fa-brands fa-github"></i>
-              <span class="btn-label">Source</span>
-            </a>
-            <a class="btn icon ghost" href="https://web-sense-toolkit.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Visit live website" data-tooltip="Live Website">
-              <i class="fa-solid fa-globe"></i>
-              <span class="btn-label">Website</span>
-            </a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-  <div class="divider" aria-hidden="true"></div>
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
 
-  <!-- Internship -->
-  <section id="internship" class="section">
-    <div class="container">
-      <h2 class="section-title reveal slide-in">Internship</h2>
-      <div class="cards">
-        <article class="card glass reveal fade-up" data-tilt>
-          <h3>Full-Stack Developer <span class="badge-live">February 2026 - April 2026</span></h3>
-          <p class="muted">MOVICLOUD Private Limited</p>
-          <p>Developing and maintaining full-stack applications with modern web technologies, contributing to scalable solutions and collaborative development.</p>
-        </article>
-        <article class="card glass reveal fade-up" data-tilt>
-          <h3>Data Science & Machine Learning Intern <span class="badge-live">July 2025 - July 2025</span></h3>
-          <p class="muted">HDLC Technologies Pvt. Ltd.</p>
-          <p>Worked on house price prediction using real‑world datasets and ML techniques — from data preprocessing to model evaluation.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-  <div class="divider" aria-hidden="true"></div>
-
-  <!-- Certifications -->
-  <section id="certifications" class="section">
-    <div class="container">
-      <h2 class="section-title reveal slide-in">Certifications</h2>
-      <article class="glass content-card reveal fade-up">
-        <ul class="cert-list">
-          <li>
-            <span>IBM SkillsBuild – Cybersecurity Fundamentals</span>
-            <a class="view-icon" href="assets/IBM- cyber security.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span>IBM SkillsBuild – Emerging Technologies</span>
-            <a class="view-icon" href="assets/emerging tech IBM.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span>Infosys SpringBoard –  Cyber Security</span>
-            <a class="view-icon" href="assets/Infosys Cyber Security.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span>Infosys SpringBoard – Information Security </span>
-            <a class="view-icon" href="assets/information security.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span>NPTEL – Industry 4.0 & Industrial IoT</span>
-            <a class="view-icon" href="assets/Introduction to Industry 4.0 and Industrial Internet of Things.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span>NPTEL – Responsible & Safe AI Systems</span>
-            <a class="view-icon" href="assets/Responsible & Safe AI Systems.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span>Coursera – TypeScript Operators</span>
-            <a class="view-icon" href="assets/Coursera TYPESRICPT.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span>Coursera – WordPress</span>
-            <a class="view-icon" href="assets/Coursera FULL WEB WORDPRESS.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span>HackerRank – Problem Solving(Basic)</span>
-            <a class="view-icon" href="assets/problem_solving_basic HR .pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span>Uipath Automation Business Analyst Training</span>
-            <a class="view-icon" href="assets/Uipath Automation Business Analyst Training_SANJAYKUMAR M_en-US_diploma.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span>Microsoft Power BI</span>
-            <a class="view-icon" href="assets/power BI.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span>Data Science</span>
-            <a class="view-icon" href="assets/Boardinfinity(data_science).pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-        </ul>
-      </article>
-    </div>
-  </section>
-  <div class="divider" aria-hidden="true"></div>
-
-  <!-- Activities & Achievements -->
-  <section id="achievements" class="section">
-    <div class="container">
-      <h2 class="section-title reveal slide-in">Activities & Achievements</h2>
-      <article class="glass content-card reveal fade-up">
-        <ul class="activity-list">
-          <li>
-            <span><strong>Drone Building & Flight Workshop</strong> – KSR College of Engineering</span>
-            <a class="view-icon" href="assets/Drone_Workshop_Sanjay.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span><strong>Flutter App Development Workshop</strong> – Kongu College of Engineering</span>
-            <a class="view-icon" href="assets/FLUTTER KONGU.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span><strong>Infinium Hackathon</strong> – PSG College of Engineering</span>
-            <a class="view-icon" href="assets/Certificate-Thooral_Hackathon.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span><strong>Hackathons:</strong> ParanoX 2.0</span>
-            <a class="view-icon" href="assets/paranox 2.0(ori).pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span><strong>Kalam Awards</strong></span>
-            <a class="view-icon" href="assets/Kalam awards.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-          <li>
-            <span><strong>Hackathons:</strong>Adobe India Hackathon</span>
-            <a class="view-icon" href="assets/adobe_unstop.pdf" target="_blank" rel="noopener noreferrer" data-tooltip="View Certificate">
-              <i class="fa-solid fa-eye"></i>
-            </a>
-          </li>
-        </ul>
-      </article>
-    </div>
-  </section>
-  <div class="divider" aria-hidden="true"></div>
-
-  <!-- Education -->
-  <section id="education" class="section">
-    <div class="container">
-      <h2 class="section-title reveal slide-in">Education</h2>
-      <div class="cards">
-        <article class="card glass reveal fade-up" data-tilt>
-          <h3>B.E Computer Science and Engineering</h3>
-          <p class="muted">M. Kumarasamy College of Engineering (2023–2027)</p>
-          <p>CGPA: 7.0</p>
-        </article>
-        <article class="card glass reveal fade-up" data-tilt>
-          <h3>HSC</h3>
-          <p class="muted">Bharathi Vidhayala Matric Higher Secondary School, Mulanur (2022–2023)</p>
-          <p>Percentage : 83.33</p>
-        </article>
-      </div>
-    </div>
-  </section>
-  <div class="divider" aria-hidden="true"></div>
-
-  <!-- Languages -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title reveal slide-in">Contact & Languages</h2>
-      <div class="grid-2">
-        <div class="reveal fade-up">
-          <p>Open to internships and placement opportunities. Reach out for collaboration or to learn more about my work.</p>
-          <div class="cta-row">
-            <a class="btn ghost" href="#projects">Explore Projects</a>
-            <a class="btn ghost" href="mailto:sanjaykumarmmkce@gmail.com">Email Me</a>
-          </div>
-        </div>
-        <div class="chips reveal fade-up">
-          <h3>Languages</h3>
-          <div class="chip-row">
-            <span class="chip">Tamil (Native)</span>
-            <span class="chip">English (Professional)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Sanjaykumar. All rights reserved.</p>
-      <div class="socials">
-        <a class="icon-btn" href="https://github.com/Sanjaycs096" target="_blank" rel="noreferrer" aria-label="GitHub">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.71.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.37-2.22-.26-4.56-1.13-4.56-5 0-1.11.39-2.01 1.02-2.72-.1-.26-.45-1.3.1-2.71 0 0 .85-.28 2.79 1.04a9.36 9.36 0 0 1 2.54-.35c.86 0 1.72.12 2.53.35 1.94-1.32 2.79-1.04 2.79-1.04.55 1.41.2 2.45.1 2.71.63.71 1.02 1.61 1.02 2.72 0 3.88-2.34 4.74-4.57 5 .36.32.67.95.67 1.91 0 1.38-.01 2.49-.01 2.83 0 .27.18.6.69.49A10.06 10.06 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z" fill="currentColor"/>
-          </svg>
-        </a>
-        <a class="icon-btn" href="https://www.linkedin.com/in/sanjaykumar-murugan" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M6.94 7.5H3.77V20h3.17V7.5ZM5.37 3.5a1.84 1.84 0 1 0 0 3.67 1.84 1.84 0 0 0 0-3.67ZM20.23 20V13.5c0-3.46-1.85-5.07-4.32-5.07-2 0-2.9 1.1-3.4 1.88V7.5H9.34V20h3.17v-6.03c0-1.59.3-3.13 2.27-3.13 1.95 0 1.98 1.82 1.98 3.23V20h3.47Z" fill="currentColor"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </footer>
+    <!-- Main Script -->
+    <script src="script.js"></script>
 </body>
 </html>

@@ -88,12 +88,10 @@ LinkedIn : https://linkedin.com/in/sanjaykumar-murugan
 • Add backend contact form  
 • Convert to React portfolio  
 • Add GSAP or 3D animations  
-• Add blog or case study section  
-
-
+• Add blog or case study section
 --------------------------------------------------
 ✨ AUTHOR
 --------------------------------------------------
-Sanjaykumar  M
-FULL-STACK DEVELOPER
+Sanjaykumar  
+Junior Software Developer  
 Passionate about Web Development, Cybersecurity & Software Engineering

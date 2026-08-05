@@ -537,4 +537,45 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = "garage.html";
         }, 4500);
     }
+
+    // ==========================================
+    // 15. Certificate Modal Logic
+    // ==========================================
+    const certLinks = document.querySelectorAll('a[href$=".pdf"]');
+    const certModal = document.getElementById('cert-modal');
+    const certIframe = document.getElementById('cert-iframe');
+    const closeCertBtn = document.getElementById('close-cert-modal');
+
+    if(certModal && certIframe && closeCertBtn) {
+        certLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const certUrl = link.getAttribute('href');
+                certIframe.src = certUrl;
+                certModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const closeModal = () => {
+            certModal.classList.remove('active');
+            setTimeout(() => {
+                certIframe.src = '';
+            }, 300);
+            document.body.style.overflow = '';
+        };
+
+        closeCertBtn.addEventListener('click', closeModal);
+        certModal.addEventListener('click', (e) => {
+            if(e.target === certModal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape' && certModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    }
 });

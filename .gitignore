@@ -1,0 +1,39 @@
+# === OS Generated ===
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# === Editor / IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.editorconfig
+
+# === Environment ===
+.env
+.env.*
+!.env.example
+
+# === Logs ===
+*.log
+npm-debug.log*
+
+# === Build / Generated ===
+dist/
+build/
+.cache/
+
+# === Node (if ever added) ===
+node_modules/
+
+# === Temporary ===
+*.tmp
+*.temp
+test.txt

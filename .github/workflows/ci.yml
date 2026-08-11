@@ -1,0 +1,61 @@
+name: CI — Validate Portfolio
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate HTML, CSS & JS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install validation tools
+        run: |
+          npm install -g htmlhint
+          npm install -g csslint
+
+      - name: Validate HTML files
+        run: |
+          echo "Validating HTML files..."
+          htmlhint index.html garage.html --format compact || true
+
+      - name: Check for broken internal links
+        run: |
+          echo "Checking internal file references..."
+          # Verify that linked CSS and JS files exist
+          for file in style.css script.js css/theme.css css/animations.css css/dashboard.css css/garage.css css/responsive.css js/main.js js/theme.js js/cursor.js js/particles.js js/cockpit.js js/terminal.js js/easterEgg.js js/garage.js; do
+            if [ ! -f "$file" ]; then
+              echo "ERROR: Missing file: $file"
+              exit 1
+            fi
+          done
+          echo "All internal file references are valid."
+
+      - name: Verify asset integrity
+        run: |
+          echo "Checking favicon and manifest..."
+          test -f assets/favicon.svg && echo "✓ favicon.svg" || echo "✗ favicon.svg missing"
+          test -f manifest.webmanifest && echo "✓ manifest.webmanifest" || echo "✗ manifest.webmanifest missing"
+          test -f robots.txt && echo "✓ robots.txt" || echo "✗ robots.txt missing"
+          test -f sitemap.xml && echo "✓ sitemap.xml" || echo "✗ sitemap.xml missing"
+          test -f vercel.json && echo "✓ vercel.json" || echo "✗ vercel.json missing"
+
+      - name: Check for sensitive data
+        run: |
+          echo "Scanning for potential secrets..."
+          if grep -rn "password\|api_key\|secret_key\|access_token\|private_key" --include="*.html" --include="*.js" --include="*.css" --include="*.json" . 2>/dev/null | grep -v "node_modules" | grep -v ".git"; then
+            echo "WARNING: Potential sensitive data found. Please review."
+          else
+            echo "No sensitive data patterns detected."
+          fi

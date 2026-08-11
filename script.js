@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         loader.style.opacity = '0';
         loader.style.visibility = 'hidden';
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
+        document.body.style.overflow = ''; // Re-enable scrolling by removing inline style
         
         // Trigger initial reveals after load
         triggerReveals();
@@ -77,24 +77,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     // Mobile Menu Toggle
-    mobileBtn.addEventListener('click', () => {
-        const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+    const toggleMenu = (forceState) => {
+        const isExpanded = forceState !== undefined ? !forceState : mobileBtn.getAttribute('aria-expanded') === 'true';
         mobileBtn.setAttribute('aria-expanded', !isExpanded);
-        navOverlay.classList.toggle('active');
-        document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
-    });
+        
+        if (!isExpanded) {
+            navOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        } else {
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    };
+
+    mobileBtn.addEventListener('click', () => toggleMenu());
 
     // Close menu when clicking a link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            mobileBtn.setAttribute('aria-expanded', 'false');
-            navOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
+            toggleMenu(false);
             
             // Active state
             navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
         });
+    });
+
+    // Close menu when clicking on the backdrop
+    navOverlay.addEventListener('click', (e) => {
+        if (e.target === navOverlay) {
+            toggleMenu(false);
+        }
+    });
+
+    // Close menu on ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navOverlay.classList.contains('active')) {
+            toggleMenu(false);
+        }
     });
 
     // ==========================================

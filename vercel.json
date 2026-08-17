@@ -1,4 +1,17 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.sanjaykumar.dev"
+        }
+      ],
+      "destination": "https://sanjaykumar.dev/$1",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
